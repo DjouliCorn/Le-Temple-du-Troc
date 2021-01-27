@@ -26,7 +26,7 @@
             <div>
                 <ul class="nav d-flex align-items-end flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="authentification.html"> Se connecter</a>
+                        <a class="nav-link" href="./client/authentification.php"> Se connecter</a>
                     </li>
                 </ul>
             </div>
