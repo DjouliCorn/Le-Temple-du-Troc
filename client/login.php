@@ -4,7 +4,7 @@ session_start();
 define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'trocdetrucs');
+define('DB_NAME', 'TrocDeTrucs');
 define('DB_DSN', 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=3306;charset=UTF8');
 
 //$dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -25,20 +25,13 @@ if (isset($_POST['connexion'])) {
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
 
-    
-    var_dump($password);
 
     if (count($errors) === 0) {
-        $query = "SELECT userName, motDePasse FROM clients WHERE userName = $username";
+        $query = "SELECT userName, motDePasse FROM Clients WHERE userName = ? AND motDePasse = ?";
         $stmt = $dbh->prepare($query);
-        $stmt = $this->dbh->error_list;
-
-        var_dump($stmt);
-        var_dump($username);
         
         $stmt->bind_param('ss',$username, $password);
 
-        var_dump($stmt);
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();
