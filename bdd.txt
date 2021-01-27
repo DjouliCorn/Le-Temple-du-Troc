@@ -1,0 +1,17 @@
+INSERT INTO Clients(userName, nomClient, prenomClient, dateNaiss, ville, email, motDePasse)
+VALUES ('jhes', 'jesusa', 'sadey', '1992/10/05', 'paris', 'jhes@gmail.com', 123456 ),
+        ('rog', 'roger', 's', '1992/10/05', 'paris', 'r@gmail.com', 123456 );
+
+
+INSERT INTO Categories(nomCat)
+VALUES ('Vetements'), ('Jouets'), ('Nourriture'), ('Beaute'), ('High-Tech'), ('Maison'), ('Autres');
+
+
+INSERT INTO Produits(idClient, nomProduit, descProduit, idCat)
+VALUES (1, 'pate panzani', 'pate 1kg', 3),
+    (2, 'jupe', 'jupe long', 1)
+
+INSERT INTO ImageProduit(urlImage, idProduit)
+VALUES ('../image/jupe.jpg', 2),
+        ('../image/panzani1.jpg', 1);
+        ('../image/panzani2.jpg', 1)
