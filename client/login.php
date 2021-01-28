@@ -28,8 +28,9 @@ if (isset($_POST['connexion'])) {
             $user = $result->fetch_assoc();
 
             var_dump($user);
+            var_dump($user['motDePasse']);
 
-            if ($password == $user['motDePasse']) { // if password matches
+            if (password_verify($password, $user['motDePasse'])) { // if password matches
                 $stmt->close();
 
                 $_SESSION['idClient'] = $user['idClient'];
@@ -37,7 +38,7 @@ if (isset($_POST['connexion'])) {
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['message'] = 'Vous êtes connecté !';
                 $_SESSION['type'] = 'alert-success';
-                header('location: index.php');
+                header('location: ../index.php');
                 exit(0);
 
             } else { // if password does not match
