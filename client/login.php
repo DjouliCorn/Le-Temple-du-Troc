@@ -1,17 +1,7 @@
 <?php
 session_start();
 
-define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'TrocDeTrucs');
-define('DB_DSN', 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=3306;charset=UTF8');
-
-//$dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$dbh = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
+include '../inc/accessBDD.php';
 
 $errors=[];
 
@@ -36,7 +26,10 @@ if (isset($_POST['connexion'])) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $user = $result->fetch_assoc();
-            if (password_verify($password, $user['motDePasse'])) { // if password matches
+
+            var_dump($user);
+
+            if ($password == $user['motDePasse']) { // if password matches
                 $stmt->close();
 
                 $_SESSION['idClient'] = $user['idClient'];
@@ -46,8 +39,10 @@ if (isset($_POST['connexion'])) {
                 $_SESSION['type'] = 'alert-success';
                 header('location: index.php');
                 exit(0);
+
             } else { // if password does not match
                 $errors['login_fail'] = "Les informations sont incorrectes";
+                echo $errors['login_fail'];
             }
         } else {
             $_SESSION['message'] = "Erreur de base de données";

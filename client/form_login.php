@@ -30,8 +30,9 @@
             <input type="password" id="password" name="motDePasse" />
         </div>
 
-        <div class="envoi">
             <input type="submit" id="submit" name="connexion" value="Se connecter" />
+
+            <a href="form_signUp.php" >Créer un compte</a>
     </form>
     </div>
 
