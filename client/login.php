@@ -3,7 +3,7 @@ session_start();
 
 include '../inc/accessBDD.php';
 
-$errors=[];
+$errors = [];
 
 if (isset($_POST['connexion'])) {
     if (empty($_POST['pseudo'])) {
@@ -15,39 +15,27 @@ if (isset($_POST['connexion'])) {
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
 
+    var_dump($username);
+    var_dump($password);
+
 
     if (count($errors) === 0) {
-        $query = "SELECT userName, motDePasse FROM Clients WHERE userName = ? AND motDePasse = ?";
-        $stmt = $dbh->prepare($query);
-        
-        $stmt->bind_param('ss',$username, $password);
+        $query = "SELECT userName, motDePasse FROM clients WHERE userName = '".$username."'";
+        var_dump($query);
+        $resultat = mysqli_query($dbh,$query);
 
+        foreach($resultat as $elt){
+            echo $elt ['userName'];
+            echo $elt ['motDePasse'];
 
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $user = $result->fetch_assoc();
-
-            var_dump($user);
-            var_dump($user['motDePasse']);
-
-            if (password_verify($password, $user['motDePasse'])) { // if password matches
-                $stmt->close();
-
-                $_SESSION['idClient'] = $user['idClient'];
-                $_SESSION['userName'] = $user['userName'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['message'] = 'Vous êtes connecté !';
-                $_SESSION['type'] = 'alert-success';
-                header('location: ../index.php');
-                exit(0);
-
-            } else { // if password does not match
-                $errors['login_fail'] = "Les informations sont incorrectes";
-                echo $errors['login_fail'];
-            }
-        } else {
-            $_SESSION['message'] = "Erreur de base de données";
-            $_SESSION['type'] = "alert-danger";
+            if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
+                echo 'Vous êtes connecté.' ;
+            } else {
+                echo "ça marche poooooo";
+            }     
         }
+
+        $dbh = null;
     }
 }
+

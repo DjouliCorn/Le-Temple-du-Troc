@@ -36,7 +36,7 @@ if (isset($_POST['signUpBtn'])) {
     $password = password_hash($_POST['motDePasse'], PASSWORD_DEFAULT); //encrypt password
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO Clients SET userName=?, email=?, nomClient=?, prenomClient=?, dateNaiss=?, ville=?, motDePasse=?";
+        $query = "INSERT INTO clients SET userName=?, email=?, nomClient=?, prenomClient=?, dateNaiss=?, ville=?, motDePasse=?";
         $stmt = $dbh->prepare($query);
         $stmt->bind_param('sssssss', $username, $email, $nom, $prenom, $dateNaiss, $ville, $password);
         $result = $stmt->execute();
