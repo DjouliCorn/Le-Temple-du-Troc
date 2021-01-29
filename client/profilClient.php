@@ -1,2 +1,2 @@
 <?php
-echo "Bonjouuur";
+include 'indexClient.php';
