@@ -18,11 +18,15 @@ if (isset($_POST['connexion'])) {
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
 
-    if (count($errors) === 0) {
+var_dump($errors);
 
+   if (count($errors) === 0) {
+
+        $dbh = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
 
         $resultat = mysqli_query($dbh,$query);
+        var_dump($resultat);
 
         foreach ($resultat as $elt){
 
