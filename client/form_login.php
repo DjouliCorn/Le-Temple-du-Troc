@@ -20,7 +20,7 @@
     require_once '../inc/header.php';
     ?>
 
-    <form action="login.php" method="POST" id="authentification">
+    <form action="./login.php" method="POST" id="authentification">
         <div class="pseudo">
             <label>Pseudo :</label>
             <input type="text" id="pseudo" name="pseudo" />
