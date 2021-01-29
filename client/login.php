@@ -20,6 +20,7 @@ if (isset($_POST['connexion'])) {
     $password = $_POST['motDePasse'];
     $_SESSION['username'] = $username;
 
+
     if (count($errors) === 0) {
 
         $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
