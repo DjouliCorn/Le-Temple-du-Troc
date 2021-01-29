@@ -12,21 +12,12 @@ if (isset($_POST['connexion'])) {
 
     if (empty($_POST['motDePasse'])) {
         $errors['motDePasse'] = 'Veuillez entrer le mot de passe';
-        
     }
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
 
-    echo $username;
-    echo $password;
-
-    echo "error : ".count($errors);
-
-
-
-
     if (count($errors) === 0) {
-        $query = "SELECT userName, motDePasse FROM clients WHERE userName = '".$username."'";
+        $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
 
         $resultat = mysqli_query($dbh,$query);
 
@@ -37,7 +28,9 @@ if (isset($_POST['connexion'])) {
                 echo 'Vous êtes connecté.' ;
 
             } else {
-                echo "ça marche poooooo";
+                include './form_login.php';
+                echo "mot de passe ou nom d'utilisateur erroné";
+
             }     
         }
 

@@ -1,3 +1,6 @@
+<?php 
+    require './login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./client/form_login.php">
                     <?php
-                    
+                        echo $username;
                     ?>
                     
                     </a>
