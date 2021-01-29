@@ -1,11 +1,13 @@
 <?php
-session_start();
+
+  session_start();
 
 include '../inc/accessBDD.php';
 
 $errors = [];
 
 if (isset($_POST['connexion'])) {
+    
     if (empty($_POST['pseudo'])) {
         $errors['pseudo'] = 'Veuillez entrer votre pseudo';
     }
@@ -17,6 +19,7 @@ if (isset($_POST['connexion'])) {
     $password = $_POST['motDePasse'];
 
     if (count($errors) === 0) {
+
         $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
 
         $resultat = mysqli_query($dbh,$query);

@@ -1,6 +1,3 @@
-<?php 
-    require './login.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
