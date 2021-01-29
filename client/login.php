@@ -15,21 +15,20 @@ if (isset($_POST['connexion'])) {
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
 
-    var_dump($username);
-    var_dump($password);
+
 
 
     if (count($errors) === 0) {
-        $query = "SELECT userName, motDePasse FROM clients WHERE userName = '".$username."'";
-        var_dump($query);
+        $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
+
         $resultat = mysqli_query($dbh,$query);
 
-        foreach($resultat as $elt){
-            echo $elt ['userName'];
-            echo $elt ['motDePasse'];
+        foreach ($resultat as $elt){
 
             if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
+                require_once './indexClient.php';
                 echo 'Vous êtes connecté.' ;
+
             } else {
                 echo "ça marche poooooo";
             }     
