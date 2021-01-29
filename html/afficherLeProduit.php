@@ -14,18 +14,9 @@
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
     <title>Document</title>
 </head>
-<script type="text/javascript">
-    function loadPage(href) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", href, false);
-        xmlhttp.send();
-        return xmlhttp.responseText;
-    }
-</script>
 <body>
-<div id="header"></div>
 
-
+<?php require_once '../mutualisation/header2.php'?>
     <?php
     define('DB_HOST', 'localhost');
     define('DB_USER', 'base4reco');
@@ -39,7 +30,6 @@
     $query = $dbh->prepare("SELECT * FROM users WHERE id = ? ");
     $query->execute([$_GET['id']]);
     $produit= $query->fetch();
-
 ?>
 
 <div class="container mt-5">

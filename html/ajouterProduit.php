@@ -11,16 +11,9 @@
     <link rel="stylesheet" href="../css/produit.css">
     <link rel="stylesheet" href="../css/homepage.css">
 </head>
-<script type="text/javascript">
-    function loadPage(href) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", href, false);
-        xmlhttp.send();
-        return xmlhttp.responseText;
-    }
-</script>
+
 <body>
-<div id="header"></div>
+<?php require_once '../mutualisation/header2.php'?>
 
 <div class="container">
     <div class="row">
@@ -77,9 +70,6 @@
 </body>
 </html>
 <script>
-    document.getElementById('header').innerHTML = loadPage('header.html')
-
-
 
     function triggerClick(e) {
         document.querySelector('#produitImage').click();

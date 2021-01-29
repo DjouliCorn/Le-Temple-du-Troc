@@ -2,6 +2,7 @@
 session_start();
 
 include '../inc/accessBDD.php';
+$dbh = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 $errors = [];
 

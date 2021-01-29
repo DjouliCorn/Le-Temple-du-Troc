@@ -18,16 +18,7 @@ $db_handle = new DBController()
 </head>
 <body >
 
-<script type="text/javascript">
-    function loadPage(href) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", href, false);
-        xmlhttp.send();
-        return xmlhttp.responseText;
-    }
-</script>
-
-<div id="header"></div>
+<?php require_once '../mutualisation/header2.php'?>
 
 <div class="container mt-5"  id="afficheDesProduits">
 
@@ -60,15 +51,5 @@ $db_handle = new DBController()
 
 </body>
 
-<script>
-    document.getElementById('header').innerHTML = loadPage('header.html');
 
-
-/*
-
-
-
- */
-
-</script>
 </html>
