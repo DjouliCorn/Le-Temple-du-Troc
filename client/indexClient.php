@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,9 +34,9 @@
             <div>
                 <ul class="nav d-flex align-items-end flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="./client/form_login.php">
+                        <a class="nav-link" href="profilClient.php">
                     <?php
-                        echo $username;
+                        echo $_SESSION['username'];
                     ?>
                     
                     </a>

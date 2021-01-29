@@ -1,6 +1,8 @@
 <?php
 
   session_start();
+  $username = "";
+  $_SESSION['username'] = $username;
 
 include '../inc/accessBDD.php';
 
@@ -27,7 +29,7 @@ if (isset($_POST['connexion'])) {
         foreach ($resultat as $elt){
 
             if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
-                require_once 'indexClient.php';
+                header('location: indexClient.php');
                 echo 'Vous êtes connecté.' ;
 
             } else {
