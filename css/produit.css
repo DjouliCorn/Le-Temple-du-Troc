@@ -34,3 +34,14 @@
     display: block;
     cursor: pointer;
 }
+
+#afficheDesProduits{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+}
+
+#grid-item{
+    text-align: center;
+    padding: 20px;
+}

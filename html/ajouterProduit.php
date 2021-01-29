@@ -43,18 +43,14 @@
               <div class="text-center img-placeholder"  onClick="triggerClick()">
                 <h4>Ajoute un image</h4>
               </div>
-                <img src="../images/panzani1.jpg" onClick="triggerClick()" id="produitDisplay">
+                <img src="" onClick="triggerClick()" id="produitDisplay" name="image">
 
             </span>
-
-
 
                     <label for="myImg">Sélectionner une photo</label>
                     <input type="file"  accept=".jpg, .jpeg, .png" name="produitImage" onChange="displayImage(this)" id="produitImage" class="form-control" style="display: none;">
 
             </div>
-
-
 
                 <select name="categorie" id="categorie" class="form-control mb-3">
                     <option value="">-- chosir la categorie --</option>
@@ -72,7 +68,7 @@
 
                 <div class="form-group">
                     <button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
-                    <button  class="btn btn-secondary btn-block">Annuler</button>
+                    <button  class="btn btn-secondary btn-block" onclick="annul()">Annuler</button>
                 </div>
             </form>
         </div>
@@ -96,5 +92,16 @@
             }
             reader.readAsDataURL(e.files[0]);
         }
+    }
+
+    function annul(e){
+        e.preventDefault();
+       // confirm('annuler l\'enregistrement?');
+        //let annuler = confirm('annuler l\'enregistrement?')
+
+       // if(annuler==true){
+         //   document.getElementsByName('image').="";
+           // document.get
+       // }
     }
 </script>
