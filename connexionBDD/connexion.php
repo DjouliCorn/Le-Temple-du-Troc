@@ -4,7 +4,7 @@ class DBController {
     private $host = "localhost";
     private $user = "base4reco";
     private $password = "base4reco";
-    private $database = "img-upload";
+    private $database = "TrocDeTrucs";
     private $conn;
 
 
@@ -29,11 +29,7 @@ class DBController {
             return $resultset;
     }
 
-    function numRows($query) {
-        $result  = mysqli_query($this->conn,$query);
-        $rowcount = mysqli_num_rows($result);
-        return $rowcount;
-    }
+
 }
 
 

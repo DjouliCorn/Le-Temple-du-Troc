@@ -10,7 +10,7 @@
 
 .form-div { margin-top: 100px; border: 1px solid #e0e0e0; }
 
-#produitDisplay { display: block; height: 210px; width: 60%; margin: 0px auto; }
+#produitDisplay { display: block; height: 210px; width: 60%; margin: 0px auto;}
 
 
 .img-placeholder {
@@ -37,11 +37,15 @@
 
 #afficheDesProduits{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px;
 }
 
 #grid-item{
+
     text-align: center;
     padding: 20px;
+}
+a{
+    text-decoration: none;
 }
