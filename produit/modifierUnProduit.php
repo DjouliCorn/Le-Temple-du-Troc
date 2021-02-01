@@ -1,4 +1,5 @@
 <?php
+
 include '../inc/accessBDD.php';
 
 $query = "SELECT * FROM Produits WHERE idProduit = ?";

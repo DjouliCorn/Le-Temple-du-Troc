@@ -1,10 +1,14 @@
 <?php
 session_start();
+
 require_once("../connexionBDD/connexion.php");
 $db_handle = new DBController();
 
 $idProduit = $_GET['id'];
-$product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$idProduit'");
+$product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$idProduit' ");
+
+
+
 
 ?>
 

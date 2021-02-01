@@ -1,10 +1,14 @@
-<?php session_start();
-require_once("../inc/accessBDD.php");
-
+<?php 
+session_start();
+$_SESSION['idProduit']=$_GET['id'];
+echo 'session:' . $_SESSION['idClient'];
+//require_once("../inc/accessBDD.php");
+define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
 define('DB_PASSWORD', 'base4reco');
 define('DB_NAME', 'TrocDeTrucs');
 define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
+
 
 
 $connexion = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -13,6 +17,10 @@ $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $query = $connexion->prepare("SELECT * FROM Produits WHERE idProduit = ? ");
 $query->execute([$_GET['id']]);
 $produit= $query->fetch();
+
+$_SESSION['toIdClient'] = $produit['idClient'];
+
+
 
 ?>
 <!doctype html>
@@ -52,12 +60,15 @@ $produit= $query->fetch();
 if( !empty($_SESSION['idClient'] ) && $_SESSION['idClient'] != $produit['idClient'] ) { ?>
 
             <div>
-                <form class="mt-5">
+                <form action = "envoyerMessage.php" method = "post" class="mt-5">
                     <label for="" class="form-label">Message:</label><br>
-                    <textarea class="form-group" name="" id="" cols="30" rows="4" placeholder="Je suis interesé(e) par votre produit...."></textarea><br>
-                    <button class="btn btn-primary">Envoyer</button>
+                    <textarea class="form-group" name="message" id="" cols="30" rows="4" placeholder="Je suis interesé(e) par votre produit...."></textarea><br>
+                    
+                        <button type="submit" name="envoyer" class="btn btn-primary">Envoyer</button>
+                   
                 </form>
             </div>
+
  <?php
 }
 ?>
