@@ -6,12 +6,13 @@ session_start();
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../css/homepage.css" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/homepage.css" />
+    <link rel="stylesheet" href="../css/indexClient.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 
-	<title>Troc de Trucs</title>
+    <title>Troc de Trucs</title>
 
 </head>
 
@@ -23,26 +24,31 @@ session_start();
             </div>
             <div>
                 <form class="d-flex justify-content-center">
-                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search"
-                        aria-label="Search" />
+                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
                     <button class="btn btn-outline-success" type="submit">
                         Search
                     </button>
                 </form>
             </div>
-            <div>
-                <ul class="nav d-flex align-items-end flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="profilClient.php">
-                    <?php
-                        echo $_SESSION['username'];
-                    ?>
-                    
-                    </a>
-                    </li>
-                </ul>
-            </div>
+            <nav id="dropdown">
+                <div id="menuClient" class="nav d-flex align-items-end flex-column">
+                    <div class="nav-item">
+                        <a class="navLink" href="#">
+                            <?php
+                            echo $_SESSION['username'];
+                            ?>
+                        </a>
+                
+                    <ul id="listeMenu">
+                        <li><a href="profilClient.php">Mon profil</a></li>
+                        <li><a href="">Mes produits</a></li>
+                        <li><a href="">Mes messages</a></li>
+                        <li><a href="">Se déconnecter</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
 
         <nav>
