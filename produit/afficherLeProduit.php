@@ -47,11 +47,9 @@ $produit= $query->fetch();
             <div class="product-title"><?php echo $produit["descProduit"]; ?></div>
 
 
-
-
 <?php //echo $_SESSION['idClient'];
 
-if( !empty($_SESSION['idClient'] )) { ?>
+if( !empty($_SESSION['idClient'] ) && $_SESSION['idClient'] != $produit['idClient'] ) { ?>
 
             <div>
                 <form class="mt-5">

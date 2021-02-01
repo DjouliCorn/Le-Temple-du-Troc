@@ -42,10 +42,15 @@
 }
 
 #grid-item{
-
     text-align: center;
     padding: 20px;
 }
 a{
     text-decoration: none;
+}
+
+#petitBtn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }

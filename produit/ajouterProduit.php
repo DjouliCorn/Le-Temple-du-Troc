@@ -59,13 +59,13 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
                    <?php endif; ?>
 
                 <div class="form-group text-center" style="position: relative;" >
-                    <input required type="text" placeholder="titre" name="nomProduit" class="form-control mb-3 mt-3">
+                    <input type="text" placeholder="titre" name="nomProduit" class="form-control mb-3 mt-3">
 
             <span class="img-div">
               <div class="text-center img-placeholder"  onClick="triggerClick()">
                 <h4>Ajoute un image</h4>
               </div>
-                <img required src="" onClick="triggerClick()" id="produitDisplay" name="image" class="img-thumbnail">
+                <img src="" onClick="triggerClick()" id="produitDisplay" name="image" class="img-thumbnail">
 
             </span>
 
@@ -74,13 +74,13 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 
             </div>
 
-                <select required name="categorie" id="categorie" class="form-control mb-3">
+                <select name="categorie" id="categorie" class="form-control mb-3">
                     <option>-- chosir la categorie --</option>
                     <option><?php echo $options_categorie?></option>
 
                 </select>
 
-                <textarea id="desc" required name="description" class="form-control mb-3" rows="8" placeholder="etat ou description du produit"></textarea>
+                <textarea id="desc" name="description" class="form-control mb-3" rows="8" placeholder="etat ou description du produit"></textarea>
 
                 <div class="form-group">
                     <button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
@@ -106,9 +106,5 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
             reader.readAsDataURL(e.files[0]);
         }
     }
-
-
-
-
 
 </script>
