@@ -19,11 +19,12 @@ if (isset($_POST['connexion'])) {
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
     $_SESSION['username'] = $username;
+    $_SESSION['motDePasse'] = $password;
 
 
     if (count($errors) === 0) {
 
-        $query = "SELECT userName, motDePasse FROM Clients WHERE userName = '".$username."'";
+        $query = "SELECT * FROM Clients WHERE userName = '".$username."'";
 
         $resultat = mysqli_query($dbh,$query);
 
