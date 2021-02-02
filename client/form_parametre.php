@@ -3,20 +3,6 @@
 include 'indexClient.php';
 include '../inc/accessBDD.php';
 
-$query1 = "SELECT * FROM Clients WHERE userName = '" . $_SESSION['username'] . "'";
-
-$motDePasse = "";
-
-$resultat1 = mysqli_query($dbh, $query1);
-
-foreach ($resultat1 as $elt) {
-
-    $motDePasse = $elt['motDePasse'];
-}
-
-$dbh = null;
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,26 +16,32 @@ $dbh = null;
 
     <title>Troc de Trucs</title>
 
-</head>
+</head> 
 
 <body>
 
     <div>
         <form action="parametre.php" method="POST">
-            <label> Mot de passe :</label>
+            <!--<label> Mot de passe :</label>
             <input name="mdpClient" class="mdpClient" type="password" value="<?php echo $_SESSION['motDePasse']; ?>" readonly />
+            <br>-->
+
+            <div id="modifMDP" style='display: none'>
+            <label>Ancien mot de passe : </label>
+            <input type="password" name="ancienMotDePasse"/>
             <br>
-
-            <div class="mdpModif"></div>
-
-            <div id="modifMDP">
-            <input type="text">
+            <label>Nouveau mot de passe : </label>
+            <input type="password" name="gestionMDP1"/>
+            <br>
+            <label>Confimer le nouveau mot de passe : </label>
+            <input type="password" name="gestionMDP2"/>
+            <br>
+            <input type="submit" name="" value="Valider le nouveau mot de passe"/>
+            <input type="button" value="Annuler" onclick="btnCancel()" />
             </div>
-
-
-
-            <input type="button" value="Modifier le mot de passe" onclick="btnModifClientMdp(); this.onclick=null" />
-            <input type="submit" value="Valider/Submit" />
+            <div id ="modifBouton" style='display:block'>
+            <input type="button" value="Modifier le mot de passe" onclick="btnModifClientMdp()" />
+            </div>
 
         </form>
     </div>
@@ -59,39 +51,26 @@ $dbh = null;
     <script type="text/javascript">
         function btnModifClientMdp() {
 
-            //     var br = document.createElement("br");
-            //     let x = document.querySelector(".mdpModif");
-            //     let labelAncienMdp = document.createElement("label");
-            //     labelAncienMdp.textContent = "Ancien mot de passe";
-            //     let ancienMdp = document.createElement("input");
-            //     ancienMdp.setAttribute("type", "password");
-            //     x.appendChild(labelAncienMdp);
-            //     x.appendChild(ancienMdp);
-            //     ancienMdp.append(br);
-
-            //     let labelNouveauMdp = document.createElement("label");
-            //     labelNouveauMdp.textContent = "Nouveau mot de passe";
-            //     let nouveauMdp = document.createElement("input");
-            //     nouveauMdp.setAttribute("type", "password");
-            //     x.appendChild(labelNouveauMdp);
-            //     x.appendChild(nouveauMdp);
-            //     nouveauMdp.append(br);
-
-            //     let labelConfirmMdp = document.createElement("label");
-            //     labelConfirmMdp.textContent = "Confirmer le nouveau mot de passe";
-            //     let confirmMdp = document.createElement("input");
-            //     confirmMdp.setAttribute("type", "password");
-            //     x.appendChild(labelConfirmMdp);
-            //     x.appendChild(confirmMdp);
-            //     x.appendChild(br);
-
-            var text = document.getElementById("demo");
+            var text = document.getElementById("modifMDP");
             if (text.style.display === "none") {
                 text.style.display = "block";
             } else {
                 text.style.display = "none";
             }
+            var text2 = document.getElementById("modifBouton");
+            text2.style.display = "none";
 
+        }
+
+        function btnCancel(){
+            var text = document.getElementById("modifMDP");
+            if (text.style.display === "block") {
+                text.style.display = "none";
+            } else {
+                text.style.display = "block";
+            }
+            var text2 = document.getElementById("modifBouton");
+            text2.style.display = "block";
         }
 
         function btnSubmitModifMdpt() {
@@ -102,6 +81,8 @@ $dbh = null;
                             ?>";
             let division = document.querySelector("#division");
             division.append(a);
+
+            
 
         }
     </script>
