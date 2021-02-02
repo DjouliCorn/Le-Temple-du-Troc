@@ -1,57 +1,57 @@
 <?php
 
-  session_start();
-  
+session_start();
+
 
 include '../inc/accessBDD.php';
 
 $errors = [];
 
 if (isset($_POST['connexion'])) {
-    
-    if (empty($_POST['pseudo'])|| empty($_POST['motDePasse'])) {
+
+    if (empty($_POST['pseudo']) || empty($_POST['motDePasse'])) {
         include './form_login.php';
         $errors['pseudo'] = 'Veuillez entrer vos informations';
         $errors['motDePasse'] = 'Veuillez entrer vos informations';
-        echo '<p style="text-align: center">'. $errors['pseudo'].'</p>';
-    }
-    /*else if (empty($_POST['pseudo'])) {
-        $errors['pseudo'] = 'Veuillez entrer votre pseudo';      
-        echo '<p style="text-align: center">'.$errors['pseudo'].'</p>';
+        echo '<p style="text-align: center">' . $errors['pseudo'] . '</p>';
     }
 
-    else if (empty($_POST['motDePasse'])) {
-        $errors['motDePasse'] = 'Veuillez entrer le mot de passe';
-        echo $errors['motDePasse'];
-    }*/
     $username = $_POST['pseudo'];
     $password = $_POST['motDePasse'];
     $_SESSION['username'] = $username;
     $_SESSION['motDePasse'] = $password;
 
-
     if (count($errors) === 0) {
 
-        $query = "SELECT * FROM Clients WHERE userName = '".$username."'";
+        $query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
 
-        $resultat = mysqli_query($dbh,$query);
+        $resultat = mysqli_query($dbh, $query);
 
-        foreach ($resultat as $elt){
+        if (mysqli_num_rows($resultat)==0){
+            include './form_login.php';
+            $errors['userName'] = 'Nom d`utilisateur ou mot de passe incorrect';
+            echo '<p style="text-align: center">' . $errors['userName'] . '</p>';
+        }
 
-            if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
-                
-                header('location: indexClient.php');          
-                echo 'Vous êtes connecté.' ;
+        foreach ($resultat as $elt) {
 
-            } else {
+            if ($elt['userName'] == $username || !password_verify($password, $elt['motDePasse'])) {
                 include './form_login.php';
-                echo "mot de passe ou nom d'utilisateur erroné";
+                $errors['motDePasse'] = 'Nom d`utilisateur ou mot de passe incorrect';
+                echo '<p style="text-align: center">' . $errors['motDePasse'] . '</p>';
+            }
 
-            }     
+
+
+
+            if (count($errors) === 0) {
+                if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
+                    header('location: indexClient.php');
+                    echo 'Vous êtes connecté.';
+                }
+            }
         }
 
         $dbh = null;
     }
 }
-
-?>
