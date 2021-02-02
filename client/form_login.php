@@ -18,7 +18,7 @@
     require_once 'header.php';
     ?>
 
-    <form action="./login.php" method="POST" id="authentification">
+    <form action="login.php" method="POST" id="authentification">
         <div class="pseudo">
             <label>Pseudo :</label>
             <input type="text" id="pseudo" name="pseudo" />
@@ -38,6 +38,8 @@
     <!--Si le compte n'existe pas, donc renvoie sur se créer un compte-->
     <!--Se créer un compte-->
     <!--Mot de passe oublié-->
+
+
 </body>
 
 </html>
