@@ -15,7 +15,7 @@
 <body>
 
     <?php
-    require_once '../inc/header.php';
+    require_once 'header.php';
     ?>
 
     <form action="signUp.php" method="POST" id="authentification">

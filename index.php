@@ -13,7 +13,7 @@
 
 <body>
 	<?php
-	require_once './inc/header.php';
+	include './client/header.php';
 	?>
 
 </body>

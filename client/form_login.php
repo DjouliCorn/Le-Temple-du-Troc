@@ -15,7 +15,7 @@
 <body>
 
     <?php
-    require_once '../inc/header.php';
+    require_once 'header.php';
     ?>
 
     <form action="./login.php" method="POST" id="authentification">
@@ -28,7 +28,7 @@
             <input type="password" id="password" name="motDePasse" />
         </div>
 
-        <input type="submit" id="submit" name="connexion" value="Se connecter" />
+        <input type="submit" id="submit" name="connexion" value="Se connecter"/>
 
         <a href="form_signUp.php">Créer un compte</a>
     </form>

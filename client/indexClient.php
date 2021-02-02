@@ -44,6 +44,7 @@ session_start();
                         <li><a href="profilClient.php">Mon profil</a></li>
                         <li><a href="">Mes produits</a></li>
                         <li><a href="">Mes messages</a></li>
+                        <li><a href="">Mes paramètres</a></li>
                         <li><a href="">Se déconnecter</a></li>
                     </ul>
                     </div>

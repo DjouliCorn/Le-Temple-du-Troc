@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    //$path = $_SERVER['DOCUMENT_ROOT'];
+    $path = "";
+    $path .="/ProjetCode/client/form_login.php";
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/homepage.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-    crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
     <title>Header</title>
 </head>
 
@@ -19,8 +23,7 @@
             </div>
             <div>
                 <form class="d-flex justify-content-center">
-                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search"
-                        aria-label="Search" />
+                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
                     <button class="btn btn-outline-success" type="submit">
                         Search
@@ -30,7 +33,7 @@
             <div>
                 <ul class="nav d-flex align-items-end flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="./client/form_login.php"> Se connecter</a>
+                        <a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
                     </li>
                 </ul>
             </div>
@@ -63,4 +66,17 @@
         </nav>
     </header>
 </body>
+
+<script type="text/javascript">
+
+function changePath() {
+  var a = document.querySelector("#navLink");
+  a.removeAttribute("href");
+  a.setAttribute("href", "./form_login.php");
+}
+        
+</script>
+
+
+
 </html>

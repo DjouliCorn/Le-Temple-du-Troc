@@ -27,15 +27,17 @@ if (isset($_POST['connexion'])) {
 
         $resultat = mysqli_query($dbh, $query);
 
-        if (mysqli_num_rows($resultat) == 0) {
+        var_dump($resultat);
+
+        if (mysqli_num_rows($resultat) === 0) {
             include './form_login.php';
             $errors['userName'] = 'Nom d`utilisateur ou mot de passe incorrect';
             echo '<p style="text-align: center">' . $errors['userName'] . '</p>';
-        }
+        } else {
+            
+            foreach ($resultat as $elt) {
 
-        foreach ($resultat as $elt) {
-
-            if ($elt['userName'] == $username || !password_verify($password, $elt['motDePasse'])) {
+            if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
                 include './form_login.php';
                 $errors['motDePasse'] = 'Nom d`utilisateur ou mot de passe incorrect';
                 echo '<p style="text-align: center">' . $errors['motDePasse'] . '</p>';
@@ -48,6 +50,7 @@ if (isset($_POST['connexion'])) {
                 }
             }
         }
+    }
 
         $dbh = null;
     }
