@@ -1,7 +1,7 @@
 <?php
 session_start();
 $pathClient = "";
-$pathClient .="/ProjetCode/client/indexClient.php";
+$pathClient .="/php/FoodTROC/client/indexClient.php";
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ $pathClient .="/ProjetCode/client/indexClient.php";
                 
                     <ul id="listeMenu">
                         <li><a href="profilClient.php">Mon profil</a></li>
-                        <li><a href="">Mes produits</a></li>
+                        <li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
                         <li><a href="">Mes messages</a></li>
                         <li><a href="form_parametre.php">Mes paramètres</a></li>
                         <li><a href="deconnexion.php">Se déconnecter</a></li>
