@@ -27,7 +27,7 @@ if (isset($_POST['connexion'])) {
 
         $resultat = mysqli_query($dbh, $query);
 
-        if (mysqli_num_rows($resultat)==0){
+        if (mysqli_num_rows($resultat) == 0) {
             include './form_login.php';
             $errors['userName'] = 'Nom d`utilisateur ou mot de passe incorrect';
             echo '<p style="text-align: center">' . $errors['userName'] . '</p>';
@@ -40,9 +40,6 @@ if (isset($_POST['connexion'])) {
                 $errors['motDePasse'] = 'Nom d`utilisateur ou mot de passe incorrect';
                 echo '<p style="text-align: center">' . $errors['motDePasse'] . '</p>';
             }
-
-
-
 
             if (count($errors) === 0) {
                 if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {

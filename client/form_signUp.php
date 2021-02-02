@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    <?php include 'signUp.php' ?>
 
     <form action="signUp.php" method="POST" id="authentification">
         <label>Pseudo</label>

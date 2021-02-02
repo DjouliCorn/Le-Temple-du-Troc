@@ -15,6 +15,8 @@ $errors = [];
 
 // SIGN UP USER
 if (isset($_POST['signUpBtn'])) {
+
+
     if (empty($_POST['pseudo'])) {
         $errors['pseudo'] = 'Pseudo requis';
     }
@@ -25,7 +27,7 @@ if (isset($_POST['signUpBtn'])) {
         $errors['motDePasse'] = 'Mot de passe requis';
     }
     if (isset($_POST['motDePasse']) && $_POST['motDePasse'] !== $_POST['motDePasseConf']) {
-        $errors['motDePasseConf'] = 'The two passwords do not match';
+        $errors['motDePasseConf'] = 'Les deux mots de passe ne correspondent pas';
     }
 
     $username = $_POST['pseudo'];
@@ -36,7 +38,17 @@ if (isset($_POST['signUpBtn'])) {
     $ville =  $_POST['ville'];
     $password = password_hash($_POST['motDePasse'], PASSWORD_DEFAULT); //encrypt password
 
-    if (count($errors) === 0) {
+    $queryCheckUserName = "SELECT userName FROM Clients WHERE $username LIKE userName";
+    $resultatUserName = mysqli_query($dbh, $queryCheckUserName);
+    
+    if (!$resultatUserName) {
+        include './form_signUp.php';
+        $errors['pseudo'] = 'Ce nom d`utilisateur existe déjà, veuillez en choisir un autre';
+        echo '<p style="text-align: center">' . $errors['pseudo'] . '</p>';
+    }
+
+    else if (count($errors) === 0) {
+        
         $query = "INSERT INTO Clients SET userName=?, email=?, nomClient=?, prenomClient=?, dateNaiss=?, ville=?, motDePasse=?";
         $stmt = $dbh->prepare($query);
         $stmt->bind_param('sssssss', $username, $email, $nom, $prenom, $dateNaiss, $ville, $password);
@@ -44,6 +56,8 @@ if (isset($_POST['signUpBtn'])) {
 
         include './form_login.php';
     }
+
+    $dbh = null;
 }
 
 
