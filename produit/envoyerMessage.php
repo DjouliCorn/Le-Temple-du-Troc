@@ -11,6 +11,7 @@ define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UT
 $connexion = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
 /* Requête pour envoyer un message au propriétaire de l'article */
 echo "id";
 echo $_SESSION['idProduit'];
