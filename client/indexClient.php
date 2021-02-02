@@ -1,5 +1,7 @@
 <?php
 session_start();
+$pathClient = "";
+$pathClient .="/ProjetCode/client/indexClient.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ session_start();
     <header id="nav">
         <div id="flex-header">
             <div>
-                <h1 id="titre">Le temple de troc</h1>
+                <h1 id="titre"><a href="<?php echo $pathClient ?>">Le temple de troc</a></h1>
             </div>
             <div>
                 <form class="d-flex justify-content-center">
@@ -44,8 +46,8 @@ session_start();
                         <li><a href="profilClient.php">Mon profil</a></li>
                         <li><a href="">Mes produits</a></li>
                         <li><a href="">Mes messages</a></li>
-                        <li><a href="">Mes paramètres</a></li>
-                        <li><a href="">Se déconnecter</a></li>
+                        <li><a href="form_parametre.php">Mes paramètres</a></li>
+                        <li><a href="deconnexion.php">Se déconnecter</a></li>
                     </ul>
                     </div>
                 </div>

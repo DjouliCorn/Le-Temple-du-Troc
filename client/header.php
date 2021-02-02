@@ -2,9 +2,11 @@
 <html lang="en">
 
 <?php
-    //$path = $_SERVER['DOCUMENT_ROOT'];
     $path = "";
     $path .="/ProjetCode/client/form_login.php";
+
+    $pathIndex = "";
+    $pathIndex .="/ProjetCode/index.php";
 ?>
 
 <head>
@@ -19,7 +21,7 @@
     <header id="nav">
         <div id="flex-header">
             <div>
-                <h1 id="titre">Le temple de troc</h1>
+                <h1 id="titre"><a href="<?php echo $pathIndex ?>">Le temple de troc</a></h1>
             </div>
             <div>
                 <form class="d-flex justify-content-center">
