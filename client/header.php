@@ -1,53 +1,15 @@
-<?php 
-
-//include './inc/accessBDD.php'; 
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
     $path = "";
     $path .="/php/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
     $pathIndex .="/php/FoodTROC/index.php";
-    
+
+    ?>
 
 
-    function is_session_started(){   
-    if ( php_sapi_name() !== 'cli' ) {
-        if ( version_compare(phpversion(), '5.4.0', '>=') ) {
-            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
-        } else {
-            return session_id() === '' ? FALSE : TRUE;
-        }
-    }
-    return FALSE;
-    }
-
-
-    // $username1 = $_SESSION['username'];
-    // $pass = $_SESSION['motDePasse'];
-    // var_dump($username1);
-    // var_dump($pass);
-
-
-//     $mdp = "";
-//     $userNameVerif = "";
-//     $queryUserName = "SELECT * FROM Clients WHERE userName = $username1 ";
-//     //$resultatUsername = mysqli_query($dbh, $queryUserName);
-
-//     foreach ($resultatUsername as $elt) {
-//     $userNameVerif = $elt['userName'];
-//     $mpd = $elt['motDePasse'];
-//  }
-
-//  if($userNameVerif == $username1 && password_verify($pass, $mdp)
-//($userNameVerif != $username && !password_verify($_SESSION['motDePasse'], $mdp))
-
-?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -72,54 +34,91 @@
                     </button>
                 </form>
             </div>
-            <!--<div>
-                <ul class="nav d-flex align-items-end flex-column">
-                    <li class="nav-item">
-                        <a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
-                    </li>
-                </ul>
-            </div>-->
+
+        </div>
+
+        
 			<div id="menuClient" class="nav d-flex align-items-end flex-column">
 
-                <?php 
-                
-                
-                if(empty($_SESSION['idClient'])){ 
-                    //var_dump(is_session_started());
-        
-                    ?>
 					<div>
 						<ul class="nav d-flex align-items-end flex-column">
 							<li class="nav-item">
-                                <?php echo 'prout prout' ?>
-								<a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
-							</li>
-						</ul>
-					</div>
-                <?php  } else { 
-                        echo 'je suis lààààà';
-                        ?>
-                    
-					<div class="nav-item">
-						<a class="navLink" href="#">
-					        <?php
-                            echo $_SESSION['username'];
-					        ?>
-						</a>
-						<ul id="listeMenu">
+                            <?php
+
+$errors = [];
+
+if(empty($_SESSION['idClient'])) {
+
+        $errors['motDePasse'] = 'Se connecterhhhghggh';
+        ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['motDePasse'];?> </a><?php
+    }
+
+if (isset($_POST['connexion'])) {
+
+    if (empty($_POST['pseudo']) || empty($_POST['motDePasse'])) {
+        $errors['pseudo'] = 'Se connecter';
+        $errors['motDePasse'] = 'Se connecter';
+        ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['pseudo'];?> </a><?php
+    }
+
+    $username = $_POST['pseudo'];
+    $password = $_POST['motDePasse'];
+    $_SESSION['username'] = $username;
+    $_SESSION['motDePasse'] = $password;
+
+    if (count($errors) === 0) {
+   
+        $query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
+
+        $resultat = mysqli_query($dbh, $query);
+
+        if (mysqli_num_rows($resultat) === 0) {
+            $errors['userName'] = 'Se connecter';
+            ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['userName']; ?> </a><?php
+        } else {
+            
+            foreach ($resultat as $elt) {
+	            $_SESSION['idClient'] = $elt['idClient'];
+            if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
+     
+                $errors['motDePasse'] = 'Se connecter';
+                ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['motDePasse']; ?> </a></li> </ul>
+                </div><?php
+            }
+            
+            if (count($errors) === 0) {
+                
+                if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
+                    ?>
+                    <div class="nav-item">
+						<a class="navLink" href="#"><ul><li>
+					        bonjour
+						</li></ul></a>
+                        
+						<!-- <ul id="listeMenu">
 							<li><a href="../client/profilClient.php">Mon profil</a></li>
 							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
 							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
 							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
-						</ul>
+						</ul> -->
 					</div>
+                <?php
+                    } else {
+                        echo "salutlulu" ;
+                    }
+                } 
+            }   
+        }
 
-                <?php 
-            } ?>
+    }  
+}
 
-			</div>
-        </div>
+  
+ ?>
+
+</div>
+
 
         <nav>
             <ul class="nav justify-content-center mt-5">
