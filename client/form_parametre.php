@@ -1,7 +1,7 @@
 <?php
 
 include 'indexClient.php';
-include '../inc/accessBDD.php';
+/*include '../inc/accessBDD.php';*/
 
 ?>
 

@@ -1,72 +1,43 @@
 <?php
 
-include '../inc/accessBDD.php';
 include 'indexClient.php';
+include '../inc/accessBDD.php';
 
 
 $userName = $_SESSION['username'];
 $oldPassword = $_SESSION['motDePasse'];
 $submittedOldPassword = $_POST['ancienMotDePasse'];
 $motDePasse1 = $_POST['gestionMDP1'];
-//$motDePasse2 = $_POST['gestionMDP2'];
 $motDePasse2 = password_hash($_POST['gestionMDP2'], PASSWORD_DEFAULT);
 
-var_dump($userName);
-var_dump($submittedOldPassword);
-var_dump($oldPassword);
-var_dump($motDePasse1);
-var_dump($motDePasse2);
-
-/*$query1 = "SELECT * FROM clients WHERE userName = '" . $_SESSION['username'] . "'";
-
-$motDePasse = "";
-
-$resultat1 = mysqli_query($dbh, $query1);
-
-foreach ($resultat1 as $elt) {
-
-    $motDePasse = $elt['motDePasse'];
-}
-
-$dbh = null;*/
 
 
 if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $motDePasse2))){
     $sql3 = "UPDATE Clients SET motDePasse = '$motDePasse2' WHERE userName = '".$userName."'";
 
-    var_dump($sql3);
     
     if ($dbh->query($sql3) === TRUE){
-        echo "Oui c gud";
-    }
-    else {
-        echo "lol non" . $dbh->error;
-    }
 
-    
-    /*$stmt3 = $dbh->prepare($sql3);
-    $stmt3->bind_param('s', $motDePasse2);
-    ?> <br> <?php var_dump($stmt3);
-    /*$stmt = $dbh->prepare($sql3);
-    
-    $stmt->bind_param('s', $motDePasse2);
-    $result = $stmt->execute();*/
-
- /*   $stmt3 = $dbh->prepare($sql3);
-    $result3 = $stmt3->execute();
-    $resultat3 = mysqli_query($dbh, $sql3);*/
-
-    /*$stmt3 = $dbh->prepare($sql3);
-    $stmt3->bind_param('s', $motDePasse2);
-    $result3 = $stmt3->execute();*/
-    //$resultat3 = mysqli_query($dbh, $sql3);
-
-        
+        echo 'Mise à jour du nouveau mot de passe ';
+    } else {
+        $dbh->error;
+    }        
     
 } else {
-    echo "Nope";
+
+        echo 'Mot de passe erroné';
 }
 
-
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification du mot de passe</title>
+</head>
+<body>
+    <a href="./form_parametre.php">Retour aux modifications</a>
+</body>
+</html>
