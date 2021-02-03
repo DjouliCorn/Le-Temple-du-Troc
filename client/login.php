@@ -36,7 +36,7 @@ if (isset($_POST['connexion'])) {
         } else {
             
             foreach ($resultat as $elt) {
-
+	            $_SESSION['idClient'] = $elt['idClient'];
             if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
                 include './form_login.php';
                 $errors['motDePasse'] = 'Nom d`utilisateur ou mot de passe incorrect';
@@ -45,7 +45,7 @@ if (isset($_POST['connexion'])) {
 
             if (count($errors) === 0) {
                 if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
-                    header('location: indexClient.php');
+                    header('location: acceuilClient.php');
                     echo 'Vous êtes connecté.';
                 }
             }

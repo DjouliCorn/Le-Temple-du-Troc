@@ -1,12 +1,12 @@
 <?php
 session_start();
-
+echo $_SESSION['idClient'];
 require_once("../connexionBDD/connexion.php");
+
 $db_handle = new DBController();
 
 $idProduit = $_GET['id'];
 $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$idProduit' ");
-
 
 
 
@@ -28,9 +28,12 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
 <body >
 
 
-<?php require_once '../mutualisation/header2.php'?>
-
+<?php  require_once '../client/indexClient.php'?>
+<button  class="btn btn-primary float-left ml-5 mb-5 mt-5 " onclick="ajouter()">Ajouter un produit</button>
 <div class="container mt-5"  id="afficheDesProduits">
+
+
+
 
     <?php
     $client =$_SESSION['idClient'];
@@ -39,6 +42,12 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
     if (!empty($product_array)) {
         foreach($product_array as $produit){
     ?>
+
+	        <?php if (!empty($msg)): ?>
+				<div class="alert <?php echo $msg_class?>" role="alert">
+			        <?php echo $msg;
+			        ?></div>
+	        <?php endif; ?>
 
             <div id="grid-item">
                 <a>
@@ -115,9 +124,9 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
 
 
 <script>
-	//function modifier(){
-	  //  window.location.href= 'http://localhost:63342/htdocs/projetWeb/FoodTROC/produit/modifierUnProduit.php?_ijt=60o70p0hus90fhl4pl6v7am59k';
-	//}
+    function ajouter(){
+        window.location.href ='../produit/ajouterProduit.php';
+    }
 </script>
 </body>
 

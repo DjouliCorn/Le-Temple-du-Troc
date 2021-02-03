@@ -37,7 +37,7 @@ $_SESSION['toIdClient'] = $produit['idClient'];
 </head>
 <body>
 
-<?php require_once '../mutualisation/header2.php';?>
+<?php require_once '../client/indexClient.php';?>
 
 
 <div class="container mt-5">
@@ -51,8 +51,8 @@ $_SESSION['toIdClient'] = $produit['idClient'];
 			<?php } ?>
 
             <div class="product-image"><img width="200" height="220" src="../images/<?php echo $produit["url1Image"]; ?>"/></div>
-            <div class="product-title"><?php echo $produit["nomProduit"]; ?></div>
-            <div class="product-title"><?php echo $produit["descProduit"]; ?></div>
+            <div class="product-title">Nom produit: <?php echo $produit["nomProduit"]; ?></div>
+            <div class="product-title">description: <?php echo $produit["descProduit"]; ?></div>
 
 
 <?php //echo $_SESSION['idClient'];

@@ -70,6 +70,7 @@ if (isset($_POST['saveProduit'])) {
 			if (mysqli_query($dbh, $sql)) {
 				$msg .= "Votre produit " . $nomProduit . " est bien modifier";
 				$msg_class = "alert-success";
+				header('location:listProduitsDuClient.php');
 
 			}// else {
 			//   $msg = "There was an error in the database";
@@ -105,7 +106,7 @@ if (isset($_POST['saveProduit'])) {
 	<title>Document</title>
 </head>
 <body>
-<?php require_once '../mutualisation/header2.php'?>
+<?php require_once '../client/indexClient.php'?>
 
 <div class="container">
 	<div class="row">

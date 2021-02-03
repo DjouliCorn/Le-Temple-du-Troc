@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('ajouteBDD.php');
+echo $_SESSION['idClient'];
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
@@ -26,6 +27,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 	$options_categorie .= '<option value="' . $un_produit['idCat'] . '">' . $un_produit['nomCat'] . '</option>';
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 </head>
 
 <body>
-<?php require_once '../mutualisation/header2.php'?>
+<?php require_once '../client/indexClient.php'?>
 
 <div class="container">
     <div class="row">
@@ -84,7 +86,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 
                 <div class="form-group">
                     <button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
-                    <button  class="btn btn-secondary btn-block">Annuler</button>
+                    <button  class="btn btn-secondary btn-block" name="annuler">Annuler</button>
                 </div>
             </form>
         </div>
@@ -106,5 +108,6 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
             reader.readAsDataURL(e.files[0]);
         }
     }
+
 
 </script>
