@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['idCLient'];
+//$_SESSION['idCLient'];
 
 //require_once "indexClient.php";
 

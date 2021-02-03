@@ -1,6 +1,7 @@
 <?php
 
-include 'indexClient.php';
+session_start();
+include 'header.php';
 include '../inc/accessBDD.php';
 
 $query1 = "SELECT * FROM Clients WHERE userName = '" . $_SESSION['username'] . "'";

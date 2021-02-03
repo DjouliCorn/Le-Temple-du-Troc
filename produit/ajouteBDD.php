@@ -1,11 +1,11 @@
 <?php
-session_start();
-echo $_SESSION['idClient'];
+//session_start();
+//echo $_SESSION['idClient'];
 
 $msg = "";
 $msg_class = "";
 $error ="";
-include '../inc/accessBDD.php';
+//include '../inc/accessBDD.php';
 
 if (isset($_POST['saveProduit'])) {
     // for the database

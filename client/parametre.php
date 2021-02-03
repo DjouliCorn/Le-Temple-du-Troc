@@ -1,7 +1,9 @@
 <?php
 
-include 'indexClient.php';
+session_start();
+include 'header.php';
 include '../inc/accessBDD.php';
+
 
 
 $userName = $_SESSION['username'];
@@ -28,7 +30,7 @@ if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $mo
         echo 'Mot de passe erroné';
 }
 
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">

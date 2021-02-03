@@ -4,9 +4,9 @@ include_once('ajouteBDD.php');
 echo $_SESSION['idClient'];
 
 define('DB_HOST', 'localhost');
-define('DB_USER', 'base4reco');
-define('DB_PASSWORD', 'base4reco');
-define('DB_NAME', 'TrocDeTrucs');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'trocdetrucs');
 define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 

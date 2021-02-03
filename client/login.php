@@ -27,8 +27,6 @@ if (isset($_POST['connexion'])) {
 
         $resultat = mysqli_query($dbh, $query);
 
-        var_dump($resultat);
-
         if (mysqli_num_rows($resultat) === 0) {
             include './form_login.php';
             $errors['userName'] = 'Nom d`utilisateur ou mot de passe incorrect';

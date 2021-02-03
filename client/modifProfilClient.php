@@ -1,7 +1,7 @@
 <?php
-
+session_start();
 include "../inc/accessBDD.php";
-include "./indexClient.php";
+include "./header.php";
 
 $userName = $_SESSION['username'];
 $nomClient = $_REQUEST['nomClient'];
