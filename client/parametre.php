@@ -32,7 +32,21 @@ $dbh = null;*/
 
 
 if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $motDePasse2))){
-    $sql3 = "UPDATE clients SET motDePasse = '$motDePasse2' WHERE userName = '".$userName."'";
+    $sql3 = "UPDATE Clients SET motDePasse = '$motDePasse2' WHERE userName = '".$userName."'";
+
+    var_dump($sql3);
+    
+    if ($dbh->query($sql3) === TRUE){
+        echo "Oui c gud";
+    }
+    else {
+        echo "lol non" . $dbh->error;
+    }
+
+    
+    /*$stmt3 = $dbh->prepare($sql3);
+    $stmt3->bind_param('s', $motDePasse2);
+    ?> <br> <?php var_dump($stmt3);
     /*$stmt = $dbh->prepare($sql3);
     
     $stmt->bind_param('s', $motDePasse2);
@@ -48,7 +62,7 @@ if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $mo
     //$resultat3 = mysqli_query($dbh, $sql3);
 
         
-    echo "Oui c gud";
+    
 } else {
     echo "Nope";
 }
