@@ -1,7 +1,10 @@
 <?php
 session_start();
+echo $_SESSION['idClient'];
+
 $msg = "";
 $msg_class = "";
+$error ="";
 include '../inc/accessBDD.php';
 
 if (isset($_POST['saveProduit'])) {
@@ -16,16 +19,13 @@ if (isset($_POST['saveProduit'])) {
     $target_dir = "../images/";
     $target_file = $target_dir . basename($produitImageName);
     // VALIDATION
-    // validate images size. Size is calculated in Bytes
-    if($_FILES['produitImage']['size'] > 200000) {
+    // validate images size. Size is calculated i Bytes
+    if($_FILES['produitImage']['size'] > 2000000){
         $msg = "Image size should not be greated than 200Kb";
+        $msg_class = "la taille d'image est trop grande";
+    }else {  
 
-    }else {
-        // check if file exists
-        if (file_exists($target_file)) {
-            $msg = "File already exists";
-            //$msg_class = "alert-danger";
-        }
+        echo "error:" . $error;
         // Upload images only if no errors
         if (empty($error)) {
             if (move_uploaded_file($_FILES["produitImage"]["tmp_name"], $target_file)) {
@@ -35,6 +35,7 @@ if (isset($_POST['saveProduit'])) {
                 if (mysqli_query($dbh, $sql)) {
                     $msg .= "Votre produit " . $nomProduit . " est bien enregistrer";
                     $msg_class = "alert-success";
+	                header('location:listProduitsDuClient.php');
 
                 }// else {
                 //   $msg = "There was an error in the database";
@@ -46,7 +47,10 @@ if (isset($_POST['saveProduit'])) {
                 $msg_class = "alert-danger";
             }
         }
-
     }
+
+}else if(isset($_POST['annuler'])){
+	header('location:listProduitsDuClient.php');
 }
+
 ?>

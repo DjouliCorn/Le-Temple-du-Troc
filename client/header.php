@@ -3,10 +3,10 @@
 
 <?php
     $path = "";
-    $path .="/ProjetCode/client/form_login.php";
+    $path .="/projetWeb/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
-    $pathIndex .="/ProjetCode/index.php";
+    $pathIndex .="projectWeb/FoodTROC/index.php";
 ?>
 
 <head>
@@ -75,6 +75,13 @@ function changePath() {
   var a = document.querySelector("#navLink");
   a.removeAttribute("href");
   a.setAttribute("href", "./form_login.php");
+}
+
+function path(){
+
+        window.location.href ='http://localhost:63342/projetWeb/FoodTROC/index.php?_ijt=25vbh0nmsaoqjo4rdb7n042kof';
+
+
 }
         
 </script>

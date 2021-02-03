@@ -14,7 +14,10 @@
 <body>
 	<?php
 	include './client/header.php';
+	include '../FoodTROC/produit/afficherListDesProduits.php';
 	?>
+
+
 
 </body>
 

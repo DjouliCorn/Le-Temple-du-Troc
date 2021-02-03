@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo $_SESSION['idClient'];
 define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
 define('DB_PASSWORD', 'base4reco');
@@ -74,7 +75,7 @@ $messagesRecu="";
    <title>Document</title>
 </head>
 <body>
-<?php require_once '../mutualisation/header2.php';?>
+<?php require_once '../client/indexClient.php';?>
 
 <nav class="m-5 pl-5">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">

@@ -19,7 +19,7 @@ $db_handle = new DBController();
 </head>
 <body >
 
-<?php require_once '../mutualisation/header2.php'?>
+<?php require_once '../client/indexClient.php'?>
     <div class="container mt-5"  id="afficheDesProduits">
             <?php
             $product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");

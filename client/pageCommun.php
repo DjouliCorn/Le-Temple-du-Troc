@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 
 include '../inc/accessBDD.php';
 
@@ -26,12 +26,18 @@ $query = "SELECT idClient, userName, motDePasse FROM Clients WHERE userName = '"
 
 $resultat = mysqli_query($dbh,$query);
 
+var_dump($resultat);
 
+//$_SESSION['idClient'] = $resultat['idClient'];
+
+echo 'idclient:' . $_SESSION['idClient'];
 foreach ($resultat as $elt){
+$_SESSION['idClient'] = $elt['idClient'];
 
 if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
 
 require_once 'indexClient.php';
+
 
 
 ?>
@@ -52,7 +58,10 @@ require_once 'indexClient.php';
 <div class="container">
 	<h1>Mes Produit</h1>
 	<button class="btn btn-primary" onclick="ajouter()">Ajouter un produit</button>
+	<button class="btn btn-primary" onclick="message()">Message</button>
 </div>
+
+
 
 
 <?php
@@ -71,8 +80,13 @@ $dbh = null;
 
 <script>
     function ajouter(){
-        window.location.href ='http://localhost:63342/htdocs/projetWeb/FoodTROC/produit/ajouterProduit.php?_ijt=gkolh51mophna43epnevj81m6e';
+        window.location.href ='../produit/ajouterProduit.php';
+
     }
+
+    function message(){
+        window.location.href='../messagerie/messagerie.php';
+	}
 </script>
 
 </body>
