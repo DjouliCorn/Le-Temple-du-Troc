@@ -1,7 +1,6 @@
 <?php 
 
-//include '../inc/accessBDD.php'; 
-
+//include './inc/accessBDD.php'; 
 ?>
 
 
@@ -14,20 +13,39 @@
 
     $pathIndex = "";
     $pathIndex .="/php/FoodTROC/index.php";
+    
 
 
-//     $username = $_POST['pseudo'];
-//     $password = $_POST['motDePasse'];
+    function is_session_started(){   
+    if ( php_sapi_name() !== 'cli' ) {
+        if ( version_compare(phpversion(), '5.4.0', '>=') ) {
+            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+        } else {
+            return session_id() === '' ? FALSE : TRUE;
+        }
+    }
+    return FALSE;
+    }
+
+
+    // $username1 = $_SESSION['username'];
+    // $pass = $_SESSION['motDePasse'];
+    // var_dump($username1);
+    // var_dump($pass);
+
+
 //     $mdp = "";
 //     $userNameVerif = "";
-//     $queryUserName = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
-//     $resultatUsername = mysqli_query($dbh, $queryUserName);
+//     $queryUserName = "SELECT * FROM Clients WHERE userName = $username1 ";
+//     //$resultatUsername = mysqli_query($dbh, $queryUserName);
+
 //     foreach ($resultatUsername as $elt) {
 //     $userNameVerif = $elt['userName'];
 //     $mpd = $elt['motDePasse'];
 //  }
 
-//  if($userNameVerif == $username && password_verify($password, $mdp)
+//  if($userNameVerif == $username1 && password_verify($pass, $mdp)
+//($userNameVerif != $username && !password_verify($_SESSION['motDePasse'], $mdp))
 
 ?>
 
@@ -43,7 +61,7 @@
     <header id="nav">
         <div id="flex-header">
             <div>
-                <h1 id="titre"><a href="<?php echo $pathIndex ?>">Le temple de troc</a></h1>
+                <h1 id="titre"><a href="<?php echo $pathIndex ?>">Le temple du troc</a></h1>
             </div>
             <div>
                 <form class="d-flex justify-content-center">
@@ -67,6 +85,7 @@
                 
                 
                 if(empty($_SESSION['idClient'])){ 
+                    //var_dump(is_session_started());
         
                     ?>
 					<div>
@@ -77,15 +96,14 @@
 							</li>
 						</ul>
 					</div>
-		        <?php } else { 
-
-                    
-                        echo 'je suis là';
+                <?php  } else { 
+                        echo 'je suis lààààà';
                         ?>
+                    
 					<div class="nav-item">
 						<a class="navLink" href="#">
 					        <?php
-					        echo $_SESSION['username'];
+                            echo $_SESSION['username'];
 					        ?>
 						</a>
 						<ul id="listeMenu">

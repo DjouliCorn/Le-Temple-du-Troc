@@ -3,6 +3,7 @@
 
 require_once("connexionBDD/connexion.php");
 $db_handle = new DBController();
+$GLOBALS['connecCheck'] = false;
 
 ?>
 
