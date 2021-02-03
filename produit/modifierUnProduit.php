@@ -1,8 +1,8 @@
 <?php
-
+session_start();
 include '../inc/accessBDD.php';
 
-$query = "SELECT * FROM Produits WHERE idProduit = ?";
+$_SESSION['idProd'] = $_GET['id'];
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
@@ -34,61 +34,6 @@ $query->execute([$_GET['id']]);
 $produit= $query->fetch();
 
 
-/************  update  ***************/
-
-
-$msg = "";
-$msg_class = "";
-include '../inc/accessBDD.php';
-
-if (isset($_POST['saveProduit'])) {
-	// for the database
-	$nomProduit = $_POST['nomProduit'];
-
-	$description = stripslashes($_POST['description']);
-	$categorie = $_POST['categorie'];
-	$produitImageName = time() . '-' . $_FILES["produitImage"]["name"];
-
-	// For images upload
-	$target_dir = "../images/";
-	$target_file = $target_dir . basename($produitImageName);
-	echo $target_file;
-	// VALIDATION
-	// validate images size. Size is calculated in Bytes
-	if ($_FILES['produitImage']['size'] > 200000) {
-		$msg = "Image size should not be greated than 20Kb";
-		$msg_class= "alert-danger";
-
-	} else{
-
-	// Upload images only if no errors
-	if (empty($error)) {
-		if (move_uploaded_file($_FILES["produitImage"]["tmp_name"], $target_file)) {
-			//$idClient =$_SESSION['idClient'];
-			$idProd = $_GET['id'];
-			$sql = "UPDATE Produits SET url1Image='$produitImageName', descProduit='$description', nomProduit='$nomProduit', idCat='$categorie' WHERE idProduit = '$idProd'";
-			if (mysqli_query($dbh, $sql)) {
-				$msg .= "Votre produit " . $nomProduit . " est bien modifier";
-				$msg_class = "alert-success";
-				header('location:listProduitsDuClient.php');
-
-			}// else {
-			//   $msg = "There was an error in the database";
-
-			//  }
-		} else {
-			//$error = "There was an error uploading the file";
-			$msg = "veuillez ajouter une image";
-			$msg_class = "alert-danger";
-		}
-	}
-
-}
-}
-
-
-
-
 ?>
 
 
@@ -114,7 +59,7 @@ if (isset($_POST['saveProduit'])) {
 		<div class="col-4 offset-md-4 mt-4 form-div">
 			<h3 class="text-center mt-3 pb-2">Modifier le produit</h3>
 
-			<form action="modifierUnProduit.php" method="post" enctype="multipart/form-data">
+			<form action="modifTraitement.php" method="post" enctype="multipart/form-data">
 
 				<?php if (!empty($msg)): ?>
 					<div class="alert <?php echo $msg_class?>" role="alert">
@@ -138,8 +83,7 @@ if (isset($_POST['saveProduit'])) {
 
 				</div>
 
-				<select name="categorie" id="categorie" class="form-control mb-3">
-					<option><?php echo $produit["nomCat"]; ?></option>
+				<select  name="categorie" id="categorie" class="form-control mb-3">
 					<?php echo $options_categorie?>
 
 				</select>
@@ -147,7 +91,9 @@ if (isset($_POST['saveProduit'])) {
 				<textarea id="desc" name="description" class="form-control mb-3" rows="8" placeholder="etat ou description du produit"><?php echo $produit["descProduit"]; ?></textarea>
 
 				<div class="form-group">
-					<button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
+
+						<button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
+
 					<button  class="btn btn-secondary btn-block">Annuler</button>
 				</div>
 			</form>
@@ -171,5 +117,5 @@ if (isset($_POST['saveProduit'])) {
 
 </script>
 
-    </body>
+</body>
 </html>

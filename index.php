@@ -31,7 +31,6 @@ $db_handle = new DBController();
 	?>
 
 
-
 	<div class="container mt-5"  id="afficheDesProduits">
 		<?php
 		$product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");

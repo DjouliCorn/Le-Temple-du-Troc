@@ -36,7 +36,6 @@ foreach ($resultat as $elt){
 
 if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
 
-require_once 'indexClient.php';
 
 
 

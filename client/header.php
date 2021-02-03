@@ -2,11 +2,15 @@
 <html lang="en">
 
 <?php
+session_start();
+$_SESSION['idCLient'];
+
+
     $path = "";
     $path .="/projetWeb/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
-    $pathIndex .="/projetWeb/FoodTROC/client/acceuilClient.php";
+    $pathIndex .="/projetWeb/FoodTROC/produit/afficherListDesProduits.php";
 ?>
 
 <head>
