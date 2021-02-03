@@ -44,8 +44,10 @@ if (isset($_POST['connexion'])) {
             }
 
             if (count($errors) === 0) {
-                if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
+                if ($elt['userName'] === $username && password_verify($password, $elt['motDePasse'])) {
+
                     header('location: acceuilClient.php');
+
                     echo 'Vous êtes connecté.';
                 }
             }

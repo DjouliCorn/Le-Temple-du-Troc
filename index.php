@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 require_once("connexionBDD/connexion.php");
 $db_handle = new DBController();
@@ -15,7 +15,6 @@ $db_handle = new DBController();
 	<link rel="stylesheet" href="./css/homepage.css" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../css/homepage.css">
 	<link rel="stylesheet" href="../css/produit.css">
 	<title>Troc de Trucs</title>
 

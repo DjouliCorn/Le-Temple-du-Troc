@@ -6,15 +6,16 @@
     $path .="/projetWeb/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
-    $pathIndex .="projectWeb/FoodTROC/index.php";
+    $pathIndex .="/projetWeb/FoodTROC/client/acceuilClient.php";
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/homepage.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-    <title>Header</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+	<link rel="stylesheet" href="../css/indexClient.css" />
+	<title>Header</title>
 </head>
 
 <body>
@@ -39,6 +40,7 @@
                     </li>
                 </ul>
             </div>-->
+			<nav id="dropdown">
 			<div id="menuClient" class="nav d-flex align-items-end flex-column">
 
 		        <?php if(empty($_SESSION['idClient'])){?>
@@ -61,7 +63,7 @@
 							<li><a href="../client/profilClient.php">Mon profil</a></li>
 							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
 							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-							<li><a href="form_parametre.php">Mes paramètres</a></li>
+							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
 						</ul>
 					</div>
@@ -69,6 +71,7 @@
 		        <?php } ?>
 
 			</div>
+		</div>
         </div>
 
         <nav>
@@ -105,13 +108,6 @@ function changePath() {
   var a = document.querySelector("#navLink");
   a.removeAttribute("href");
   a.setAttribute("href", "./form_login.php");
-}
-
-function path(){
-
-        window.location.href ='http://localhost:63342/projetWeb/FoodTROC/index.php?_ijt=25vbh0nmsaoqjo4rdb7n042kof';
-
-
 }
         
 </script>

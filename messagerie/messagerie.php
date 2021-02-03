@@ -75,7 +75,7 @@ $messagesRecu="";
    <title>Document</title>
 </head>
 <body>
-<?php require_once '../client/indexClient.php';?>
+<?php require_once '../client/header.php';?>
 
 <nav class="m-5 pl-5">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
