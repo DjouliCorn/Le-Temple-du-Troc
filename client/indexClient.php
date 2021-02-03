@@ -47,7 +47,7 @@ $pathClient .="/projetWeb/FoodTROC/client/acceuilClient.php";
                         <li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
                         <li><a href="../messagerie/messagerie.php">Mes messages</a></li>
                         <li><a href="form_parametre.php">Mes paramètres</a></li>
-                        <li><a href="deconnexion.php">Se déconnecter</a></li>
+                        <li><a href="../client/deconnexion.php">Se déconnecter</a></li>
                     </ul>
                     </div>
                 </div>

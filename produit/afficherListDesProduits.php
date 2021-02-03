@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../connexionBDD/connexion.php");
-$_SESSION['idClient'];
+//$_SESSION['idClient'];
 echo 'session:' . $_SESSION['idClient'];
 $db_handle = new DBController();
 ?>
@@ -17,9 +17,16 @@ $db_handle = new DBController();
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/produit.css">
 </head>
-<body >
+<body>
 
-<?php require_once '../client/indexClient.php'?>
+
+
+<?php
+if(!empty($_SESSION['idClient'])){
+	require_once '../client/header.php';
+}
+
+require_once '../client/indexClient.php'?>
     <div class="container mt-5"  id="afficheDesProduits">
             <?php
             $product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");
