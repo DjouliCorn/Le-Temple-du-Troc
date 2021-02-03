@@ -28,7 +28,7 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
 <body >
 
 
-<?php  require_once '../client/indexClient.php'?>
+<?php  require_once '../client/header.php'?>
 <button  class="btn btn-primary float-left ml-5 mb-5 mt-5 " onclick="ajouter()">Ajouter un produit</button>
 <div class="container mt-5"  id="afficheDesProduits">
 

@@ -32,13 +32,43 @@
                     </button>
                 </form>
             </div>
-            <div>
+            <!--<div>
                 <ul class="nav d-flex align-items-end flex-column">
                     <li class="nav-item">
                         <a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
                     </li>
                 </ul>
-            </div>
+            </div>-->
+			<div id="menuClient" class="nav d-flex align-items-end flex-column">
+
+		        <?php if(empty($_SESSION['idClient'])){?>
+					<div>
+						<ul class="nav d-flex align-items-end flex-column">
+							<li class="nav-item">
+								<a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
+							</li>
+						</ul>
+					</div>
+		        <?php } else{?>
+
+					<div class="nav-item">
+						<a class="navLink" href="#">
+					        <?php
+					        echo $_SESSION['username'];
+					        ?>
+						</a>
+						<ul id="listeMenu">
+							<li><a href="../client/profilClient.php">Mon profil</a></li>
+							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
+							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
+							<li><a href="form_parametre.php">Mes paramètres</a></li>
+							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
+						</ul>
+					</div>
+
+		        <?php } ?>
+
+			</div>
         </div>
 
         <nav>

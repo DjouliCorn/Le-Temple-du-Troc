@@ -22,11 +22,11 @@ $db_handle = new DBController();
 
 
 <?php
-if(!empty($_SESSION['idClient'])){
-	require_once '../client/header.php';
-}
+//if(!empty($_SESSION['idClient'])){
+//	require_once '../client/header.php';
+//}
 
-require_once '../client/indexClient.php'?>
+require_once '../client/header.php'?>
     <div class="container mt-5"  id="afficheDesProduits">
             <?php
             $product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");

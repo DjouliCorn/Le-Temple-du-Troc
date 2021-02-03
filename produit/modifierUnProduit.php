@@ -106,7 +106,7 @@ if (isset($_POST['saveProduit'])) {
 	<title>Document</title>
 </head>
 <body>
-<?php require_once '../client/indexClient.php'?>
+<?php require_once '../client/header.php'?>
 
 <div class="container">
 	<div class="row">

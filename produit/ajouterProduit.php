@@ -44,7 +44,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 </head>
 
 <body>
-<?php require_once '../client/indexClient.php'?>
+<?php require_once '../client/header.php'?>
 
 <div class="container">
     <div class="row">
