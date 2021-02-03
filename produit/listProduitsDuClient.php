@@ -37,7 +37,7 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
 
     <?php
     $client =$_SESSION['idClient'];
-    $product_array = $db_handle->runQuery("SELECT idProduit, nomProduit, url1Image, descProduit FROM Produits, Clients  WHERE Produits.idClient = Clients.idClient AND Clients.idClient = '$client' ORDER BY nomProduit");
+    $product_array = $db_handle->runQuery("SELECT idProduit, nomProduit, urlImage, descProduit FROM Produits, Clients  WHERE Produits.idClient = Clients.idClient AND Clients.idClient = '$client' ORDER BY nomProduit");
 
     if (!empty($product_array)) {
         foreach($product_array as $produit){
@@ -51,7 +51,7 @@ $product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$id
 
             <div id="grid-item">
                 <a>
-                    <div class="product-image"><img width="150" height="180" src="../images/<?php echo $produit["url1Image"]; ?>"/></div>
+                    <div class="product-image"><img width="150" height="180" src="../images/<?php echo $produit["urlImage"]; ?>"/></div>
 					<div class="product-title"><?php echo $produit["nomProduit"]; ?></div>
                 </a>
 				<div id="petitBtn">

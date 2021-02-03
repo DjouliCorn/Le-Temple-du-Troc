@@ -3,10 +3,10 @@
 
 <?php
     $path = "";
-    $path .="/projetWeb/FoodTROC/client/form_login.php";
+    $path .="/php/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
-    $pathIndex .="projectWeb/FoodTROC/index.php";
+    $pathIndex .="/php/FoodTROC/index.php";
 ?>
 
 <head>
