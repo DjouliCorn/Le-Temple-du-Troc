@@ -5,6 +5,15 @@
     $pathIndex = "";
     $pathIndex .="/php/FoodTROC/index.php";
 
+    $pathDeco = "";
+    $pathDeco .= "/php/FoodTROC/client/deconnexion.php";
+
+    $pathProfil = "";
+    $pathProfil .= "/php/FoodTROC/client/profilClient.php";
+
+    $pathParam = "";
+    $pathParam .= "/php/FoodTROC/client/form_parametre.php";
+
     if (empty($dbh) == TRUE){
         include '../inc/accessBDD.php';
     }
@@ -86,13 +95,18 @@ if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
 
         $resultat = mysqli_query($dbh, $query);
 
+        var_dump($query);
+        var_dump($resultat);
+
         if (mysqli_num_rows($resultat) === 0) {
+            echo 'je trouve po ki t';
             $errors['userName'] = 'Se connecter';
             ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li><?php
         } else {
             
             foreach ($resultat as $elt) {
-	            $_SESSION['idClient'] = $elt['idClient'];
+                $_SESSION['idClient'] = $elt['idClient'];
+                
             if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
      
                 $errors['motDePasse'] = 'Se connecter';
@@ -112,11 +126,11 @@ if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
                     ?> 
                 </a>
                 <ul id="listeMenu">
-                    <li><a href="../client/profilClient.php">Mon profil</a></li>
+                    <li><a href="<?php echo $pathProfil ?>">Mon profil</a></li>
                     <li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
                     <li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-                    <li><a href="form_parametre.php">Mes paramètres</a></li>
-                    <li><a href="../client/deconnexion.php">Se déconnecter</a></li>
+                    <li><a href="<?php echo $pathParam ?>">Mes paramètres</a></li>
+                    <li><a href="<?php echo $pathDeco ?>">Se déconnecter</a></li>
                 </ul>
                 <?php
                     } 

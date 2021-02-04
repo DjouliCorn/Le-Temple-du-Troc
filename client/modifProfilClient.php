@@ -1,6 +1,8 @@
 <?php
 session_start();
-include "../inc/accessBDD.php";
+if (empty($dbh) == TRUE){
+    include '../inc/accessBDD.php';
+}
 include "./header.php";
 
 $userName = $_SESSION['username'];
