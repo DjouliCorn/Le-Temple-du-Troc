@@ -1,7 +1,9 @@
 <?php
-
-include 'indexClient.php';
-/*include '../inc/accessBDD.php';*/
+session_start();
+include 'header.php';
+if (empty($dbh) == TRUE){
+    include '../inc/accessBDD.php';
+}
 
 ?>
 

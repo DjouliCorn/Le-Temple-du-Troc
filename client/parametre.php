@@ -1,7 +1,12 @@
 <?php
 
-include 'indexClient.php';
-include '../inc/accessBDD.php';
+session_start();
+include 'header.php';
+
+if (empty($dbh) == TRUE){
+    include '../inc/accessBDD.php';
+}
+
 
 
 $userName = $_SESSION['username'];
@@ -19,6 +24,7 @@ if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $mo
     if ($dbh->query($sql3) === TRUE){
 
         echo 'Mise à jour du nouveau mot de passe ';
+       $_SESSION['motDePasse'] = $motDePasse1;
     } else {
         $dbh->error;
     }        
@@ -28,7 +34,7 @@ if(($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $mo
         echo 'Mot de passe erroné';
 }
 
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">

@@ -2,8 +2,11 @@
 
 session_start();
 
+if (empty($dbh) == TRUE){
+    include '../inc/accessBDD.php';
+}
 
-include '../inc/accessBDD.php';
+
 
 $errors = [];
 
@@ -40,8 +43,6 @@ if (isset($_POST['connexion'])) {
 
         $resultat = mysqli_query($dbh, $query);
 
-        var_dump($resultat);
-
         if (mysqli_num_rows($resultat) === 0) {
             include './form_login.php';
             $errors['userName'] = 'Nom d`utilisateur ou mot de passe incorrect';
@@ -57,10 +58,13 @@ if (isset($_POST['connexion'])) {
             }
 
             if (count($errors) === 0) {
-                if ($elt['userName'] === $username && password_verify($password, $elt['motDePasse'])) {
-
-                    header('location: ../produit/afficherListDesProduits.php');
-
+                if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
+                    $username = $_POST['pseudo'];
+                    $password = $_POST['motDePasse'];
+                    $_SESSION['username'] = $username;
+                    $_SESSION['motDePasse'] = $password;
+                    include '../produit/afficherListDesProduits.php';
+                    
                     echo 'Vous êtes connecté.';
                 }
             }
