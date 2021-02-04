@@ -83,27 +83,28 @@ if (isset($_POST['connexion'])) {
                 $errors['motDePasse'] = 'Se connecter';
                 ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li> </ul>
                 <?php
+                echo count($errors);
             }
-            
+            echo count($errors);
             if (count($errors) === 0) {
-                
+                echo count($errors);
+                echo $_SESSION['username'];
+                echo $_SESSION['motDePasse'];
                 if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
-                    ?></div>
-                    <div class="nav-item">kkfkfkfkf
-						<a class="navLink" href="#"><ul><li>
-					        bonjour
-						</li></ul></a>
-                        
-						<!-- <ul id="listeMenu">
-							<li><a href="../client/profilClient.php">Mon profil</a></li>
-							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
-							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
-							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
-						</ul> -->
-					
+                   echo 'blablaaaa' ; ?> <a class="navLink" href="#">
+                    <?php
+                    echo $_SESSION['username'];
+                    ?> 
+                </a>
+                <ul id="listeMenu">
+                    <li><a href="../client/profilClient.php">Mon profil</a></li>
+                    <li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
+                    <li><a href="../messagerie/messagerie.php">Mes messages</a></li>
+                    <li><a href="form_parametre.php">Mes paramètres</a></li>
+                    <li><a href="../client/deconnexion.php">Se déconnecter</a></li>
+                </ul>
                 <?php
-                    }
+                    } 
                 } 
             }   
         }
@@ -143,24 +144,5 @@ if (isset($_POST['connexion'])) {
         </nav>
     </header>
 </body>
-
-<script type="text/javascript">
-
-function changePath() {
-  var a = document.querySelector("#navLink");
-  a.removeAttribute("href");
-  a.setAttribute("href", "./form_login.php");
-}
-
-function path(){
-
-        window.location.href ='http://localhost:63342/projetWeb/FoodTROC/index.php?_ijt=25vbh0nmsaoqjo4rdb7n042kof';
-
-
-}
-        
-</script>
-
-
 
 </html>
