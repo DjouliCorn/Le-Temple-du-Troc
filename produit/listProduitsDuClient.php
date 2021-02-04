@@ -2,12 +2,10 @@
 session_start();
 echo $_SESSION['idClient'];
 require_once("../connexionBDD/connexion.php");
-
+require_once '../client/header.php';
 $dbh = new DBController();
 
 
-
-//$product_array = $db_handle->runQuery("DELETE FROM Produits WHERE idProduit='$idProduit' ");
 
 ?>
 
@@ -26,8 +24,6 @@ $dbh = new DBController();
 </head>
 <body >
 
-
-<?php  require_once '../client/header.php'?>
 <button  class="btn btn-primary ml-5 mt-5" onclick="ajouter()">Ajouter un produit</button>
 <div class="container mt-5"  id="afficheDesProduits">
 

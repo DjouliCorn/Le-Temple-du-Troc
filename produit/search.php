@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../connexionBDD/connexion.php");
-//$_SESSION['idClient'];
+
 echo 'session:' . $_SESSION['idClient'];
 $db_handle = new DBController();
 ?>
@@ -22,9 +22,7 @@ $db_handle = new DBController();
 
 
 <?php
-//if(!empty($_SESSION['idClient'])){
-//	require_once '../client/header.php';
-//}
+
 
 require_once '../client/header.php'?>
 <div class="container mt-5"  id="afficheDesProduits">

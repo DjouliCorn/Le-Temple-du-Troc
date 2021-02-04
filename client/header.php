@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['idCLient'];
+//$_SESSION['idCLient'];
 
     //adapt path according to own settings
     $path = "";
@@ -28,11 +28,6 @@ $_SESSION['idCLient'];
         include '../inc/accessBDD.php';
     }
 
-    /*$pathBDD = "";
-    $pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
-
-    //include '../inc/accessBDD.php';
-    include $pathBDD;*/
 
     ?>
 
@@ -43,9 +38,9 @@ $_SESSION['idCLient'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/homepage.css" />
+    <!-- <link rel="stylesheet" href="./css/homepage.css" /> -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-	<link rel="stylesheet" href="../css/indexClient.css" />
+	<!-- <link rel="stylesheet" href="../css/indexClient.css" /> -->
 	<title>Header</title>
 </head>
 
@@ -83,9 +78,7 @@ if(empty($_SESSION['idClient'])) {
 }
 
 if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
-    echo 'lol' ;
 
-    var_dump($_SESSION['username']);
 
     if (empty($_SESSION['username']) || empty($_SESSION['motDePasse'])) {
         $errors['pseudo'] = 'Se connecter';
@@ -93,24 +86,17 @@ if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
         ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter';?> </a></li><?php
     }
 
-    /*$username = $_POST['pseudo'];
-    $password = $_POST['motDePasse'];*/
     $username = $_SESSION['username'];
     $password = $_SESSION['motDePasse'];
 
-    var_dump($username);
-
     if (count($errors) === 0) {
-        echo 'je suis là';
+        
         $query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
 
         $resultat = mysqli_query($dbh, $query);
 
-        var_dump($query);
-        var_dump($resultat);
-
         if (mysqli_num_rows($resultat) === 0) {
-            echo 'je trouve po ki t';
+            
             $errors['userName'] = 'Se connecter';
             ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li><?php
         } else {
@@ -133,6 +119,7 @@ if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
                    
                    ?> <a class="navLink" href="#">
                     <?php
+            
                     echo $_SESSION['username'];
                     ?> 
                 </a>

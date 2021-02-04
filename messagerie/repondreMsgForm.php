@@ -28,7 +28,6 @@ $sql ="SELECT  Produits.nomProduit,Clients.idClient,Messages.idProduit, Clients.
 $messages=$connexion->query($sql);
 
 $result = $messages->fetch_array(MYSQLI_ASSOC);
-var_dump($result);
 
 
 

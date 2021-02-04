@@ -66,12 +66,9 @@ if (isset($_POST['saveProduit'])) {
 
 					header('location: ../produit/listProduitsDuClient.php');
 
-				}// else {
-				//   $msg = "There was an error in the database";
-
-				//  }
+				}
 			} else {
-				//$error = "There was an error uploading the file";
+			
 				$msg = "veuillez ajouter une image";
 				$msg_class = "alert-danger";
 			}

@@ -2,7 +2,7 @@
 session_start();
 include_once('ajouteBDD.php');
 echo $_SESSION['idClient'];
-
+require_once '../client/header.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
@@ -44,7 +44,6 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 </head>
 
 <body>
-<?php require_once '../client/header.php'?>
 
 <div class="container">
     <div class="row">
@@ -56,8 +55,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 
                 <?php if (!empty($msg)): ?>
                     <div class="alert <?php echo $msg_class?>" role="alert">
-                   <?php echo $msg;
-                   ?></div>
+                   </div>
                    <?php endif; ?>
 
                 <div class="form-group text-center" style="position: relative;" >

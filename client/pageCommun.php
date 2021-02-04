@@ -26,13 +26,8 @@ $query = "SELECT idClient, userName, motDePasse FROM Clients WHERE userName = '"
 
 $resultat = mysqli_query($dbh,$query);
 
-var_dump($resultat);
-
-//$_SESSION['idClient'] = $resultat['idClient'];
-
 echo 'idclient:' . $_SESSION['idClient'];
 foreach ($resultat as $elt){
-//$_SESSION['idClient'] = $elt['idClient'];
 
 if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
 

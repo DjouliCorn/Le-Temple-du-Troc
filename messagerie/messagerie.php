@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['idClient'];
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
@@ -9,8 +9,6 @@ define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UT
 
 $idClient = $_SESSION['idClient'];
 
-
-echo $idClient;
 $connexion = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
