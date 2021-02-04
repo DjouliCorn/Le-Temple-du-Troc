@@ -4,7 +4,7 @@ require_once("connexionBDD/connexion.php");
 $db_handle = new DBController();
 
 $pathBDD = "";
-$pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
+$pathBDD .= "/ProjetCode/inc/accessBDD.php";
 
     require_once './inc/accessBDD.php';
 

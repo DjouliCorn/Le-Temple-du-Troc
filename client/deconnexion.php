@@ -3,7 +3,7 @@ session_start();
 session_destroy();
 $_SESSION['username'] = NULL;
 $pathIndex = "";
-$pathIndex .="/php/FoodTROC/index.php";
+$pathIndex .="/ProjetCode/index.php";
 header('location: '.$pathIndex.'');
 exit;
 ?>

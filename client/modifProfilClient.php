@@ -15,7 +15,6 @@ $emailClient= $_REQUEST['emailClient'];
 $sql2 = "UPDATE Clients SET nomClient = '$nomClient', prenomClient = '$prenomClient', ville = '$villeClient',
 dateNaiss = '$dateNaiss', email = '$emailClient' WHERE userName = '".$userName."'";
  $stmt2 = $dbh->prepare($sql2);
- var_dump($stmt2);
  $result2 = $stmt2->execute();
  
 ?>
@@ -25,6 +24,7 @@ dateNaiss = '$dateNaiss', email = '$emailClient' WHERE userName = '".$userName."
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/homepage.css" />
     <title>Modification effectué</title>
 </head>
 <body>
