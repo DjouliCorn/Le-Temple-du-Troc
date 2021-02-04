@@ -16,6 +16,9 @@ $idMess=$_GET['id'];
 
 $fromClient = $_SESSION['idClient'];
 
+
+
+
 echo "avant sql";
 $connexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -29,35 +32,42 @@ $messages=$connexion->query($sql);
 
 $result = $messages->fetch_array(MYSQLI_ASSOC);
 
+var_dump($result);
 
-echo "nomProd ".$result["nomProduit"].'<br>';
-echo "email ".$result["email"];
-echo "idProduit ".$result["idProduit"]."<br>";
-echo "toClient ".$result["idClient"]."<br>";
+
+echo "nomProd: ".$result["nomProduit"].'<br>';
+echo "email: ".$result["email"].PHP_EOL;
+echo "idProduit: ".$result["idProduit"]."<br>";
+echo "toClient: ".$result["idClient"]."<br>";
 
 
 
 if(isset($_POST['envoyer'])){
+
+	//$fromClient;
+//$toClient;
+//$content;
+//$idProduit;
    
   $idProduit = $result["idProduit"];
-  $objet = $_POST['objet'];
+
   $content = $_POST['reponse'];
   $toClient = $result["idClient"];
   
   
-    $sql ="INSERT INTO Messages SET idProduit=$idProduit, content=$content, objet=$objet, toClient=$toClient,fromClient=$idClient )";
+    $sql ="INSERT INTO Messages SET idProduit=$idProduit, content=$content, toClient=$toClient,fromClient=$idClient )";
   
     
   
-    echo 'id' . $idClient;
-    echo 'content'.$content;
-    echo 'objt'.$objet;
-    echo 'to'.$toClient;
+    echo 'id' . $idClient.PHP_EOL;
+    echo 'content'.$content.PHP_EOL;
+
+    echo 'to'.$toClient.PHP_EOL;
     echo $idClient;
   
     $messages=$connexion->query($sql);
   
-     
+     var_dump($messages);
     echo "insert success";
   
   }
@@ -99,12 +109,6 @@ if(isset($_POST['envoyer'])){
       </div>
     </div>
 
-    <div class="mb-3 row" > 
-        <label for="staticEmail" class="col-sm-2 col-form-label">Objet:</label>
-        <div class="col-sm-10">
-          <input type="text" name="objet"  class="form-control-plaintext" id="staticEmail" value="objet">
-        </div>
-    </div>
 
     <div class="mb-3 row" >
         <label for="staticEmail" class="col-sm-2 col-form-label">Message:</label>
