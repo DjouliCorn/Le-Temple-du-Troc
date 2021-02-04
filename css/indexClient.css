@@ -3,7 +3,7 @@ position: relative;
 display: inline-block;
 }
 
-#dropdown:hover #listeMenu {
+#menuClient:hover  ~ #listeMenu {
     display: flex;
     flex-direction: column;
 }
@@ -15,7 +15,7 @@ display: inline-block;
     position: absolute;
 } 
 
-/* #menuClient:active .menuContent{
+/*#menuClient:active .menuContent{
     display: block;
-} */
+}*/
 

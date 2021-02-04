@@ -2,7 +2,7 @@
 session_start();
 session_destroy();
 $pathIndex = "";
-$pathIndex .="/php/FoodTROC/index.php";
+$pathIndex .="/ProjetCode/index.php";
 header('location: '.$pathIndex.'');
 exit;
 ?>
