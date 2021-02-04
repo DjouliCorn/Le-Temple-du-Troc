@@ -89,7 +89,7 @@ if (isset($_POST['connexion'])) {
                 
                 if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
                     ?></div>
-                    <div class="nav-item">
+                    <div class="nav-item">kkfkfkfkf
 						<a class="navLink" href="#"><ul><li>
 					        bonjour
 						</li></ul></a>
@@ -101,8 +101,7 @@ if (isset($_POST['connexion'])) {
 							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
 						</ul> -->
-					</div>
-                    </div>
+					
                 <?php
                     }
                 } 
@@ -115,7 +114,8 @@ if (isset($_POST['connexion'])) {
   
  ?>
 
-
+</div>
+</div>
         <nav>
             <ul class="nav justify-content-center mt-5">
                 <li class="nav-item">
