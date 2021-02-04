@@ -3,27 +3,28 @@ if (empty($_SESSION['username']) == TRUE) {
     session_start();
 }
 
-//adapt path according to own settings
+// !! adapt path according to own settings also in deconnexion.php !!
+//Nick's : /php/FoodTROC/
 $path = "";
-$path .= "/ProjetCode/client/form_login.php";
+$path .= "/php/FoodTROC/client/form_login.php";
 
 $pathIndex = "";
-$pathIndex .= "/ProjetCode/produit/afficherListDesProduits.php";
+$pathIndex .= "/php/FoodTROC/produit/afficherListDesProduits.php";
 
 $pathDeco = "";
-$pathDeco .= "/ProjetCode/client/deconnexion.php";
+$pathDeco .= "/php/FoodTROC/client/deconnexion.php";
 
 $pathProfil = "";
-$pathProfil .= "/ProjetCode/client/profilClient.php";
+$pathProfil .= "/php/FoodTROC/client/profilClient.php";
 
 $pathParam = "";
-$pathParam .= "/ProjetCode/client/form_parametre.php";
+$pathParam .= "/php/FoodTROC/client/form_parametre.php";
 
 $pathListeProduits = "";
-$pathListeProduits .= "/ProjetCode/produit/listProduitsDuClient.php";
+$pathListeProduits .= "/php/FoodTROC/produit/listProduitsDuClient.php";
 
 $pathMessagerie = "";
-$pathMessagerie .= "/ProjetCode/messagerie/messagerie.php";
+$pathMessagerie .= "/php/FoodTROC/messagerie/messagerie.php";
 
 if (empty($dbh) == TRUE) {
     include '../inc/accessBDD.php';
