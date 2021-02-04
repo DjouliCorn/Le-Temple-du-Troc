@@ -4,7 +4,7 @@
 $msg = "";
 $msg_class = "";
 $error ="";
-
+require_once '../inc/accessBDD.php';
 
 if (isset($_POST['saveProduit'])) {
     // for the database
@@ -31,7 +31,7 @@ if (isset($_POST['saveProduit'])) {
         // Upload images only if no errors
         if (empty($error)) {
 
-            echo $idClient . $description . $nomProduit;
+           // echo $idClient . $description . $nomProduit;
             var_dump($_FILES["produitImage"]["tmp_name"]);
 
             if (move_uploaded_file($_FILES["produitImage"]["tmp_name"], $target_file)) {

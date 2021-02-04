@@ -8,38 +8,20 @@ define('DB_NAME', 'TrocDeTrucs');
 define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
 
 
-
-echo "avant sql";
-
 /*** pour recuperer le message avec id qui viens sur la page messagerie.php	****/
 $idMess=$_GET['id'];
 $connexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 $sql ="SELECT  Produits.nomProduit,Clients.idClient,Messages.idProduit, Clients.email FROM Produits, Messages, Clients WHERE Messages.idMess = $idMess AND Messages.fromClient = Clients.idClient AND Messages.idProduit = Produits.idProduit";
 
-//$fromClient = ;
-//$toClient;
-//$content;
-//$idProduit;
-
-
-//$sql = "INSERT INTO tutorials_inf(name)VALUES ('".$_POST["name"]."')";
-
 $messages=$connexion->query($sql);
 
 $result = $messages->fetch_array(MYSQLI_ASSOC);
 
 
-
 /******		session pour recuperer a la page reponseTraitement	******/
 $_SESSION['idClientTo'] = $result['idClient'];
 $_SESSION['idProduit']= $result['idProduit'];
-
-
-
-  
-
-
 
 
 ?>
@@ -77,8 +59,10 @@ $_SESSION['idProduit']= $result['idProduit'];
         <label for="staticEmail" class="col-sm-2 col-form-label">Message:</label>
         <textarea class="m-2" cols="30" rows="10"  name="reponse" placeholder=" Ecrire votre reponse.."></textarea>
     </div>
+
 	<div class="mb-3 float-right " >
-		<button type="submit" class="btn btn-primary" name="submit" > Envoyer</button>
+		<button class="btn btn-secondary mr-3" name="annuler">Annuler</button>
+		<button type="submit" class="btn btn-primary" name="envoyer"> Envoyer</button>
     </div>
 
 </form>

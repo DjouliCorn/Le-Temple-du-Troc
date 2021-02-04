@@ -106,7 +106,7 @@ $messagesRecu="";
   
   <!--Messages envoyés-->
   
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">envoye
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 	<table class="table">
 		<thead>
 		<tr> <th scope="col">Nom produit</th>  <th scope="col">Email</th>  <th scope="col">Message</th>  <th scope="col">Date</th>  <th>supprimer</th> </tr>

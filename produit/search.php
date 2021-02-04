@@ -2,7 +2,6 @@
 session_start();
 require_once("../connexionBDD/connexion.php");
 
-echo 'session:' . $_SESSION['idClient'];
 $db_handle = new DBController();
 ?>
 

@@ -75,6 +75,8 @@ if (isset($_POST['saveProduit'])) {
 		}
 
 	}
+}else if(isset($_POST['annuler'])){
+	header('location:listProduitsDuClient.php');
 }
 
 

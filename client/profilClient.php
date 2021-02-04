@@ -46,28 +46,28 @@ $dbh = null;
 
 <body>
 
-    <div>
-        <form action="modifProfilClient.php" method="POST">
-            <label> Nom d'utilisateur :</label>
+    <div class="col-4 offset-md-4 mt-5 border border-secondary p-4 ">
+        <form action="modifProfilClient.php" method="POST" >
+            <label class=" mb-3 pb-3 pt-4 "> Nom d'utilisateur :</label>
             <?php echo $_SESSION['username']; ?>
             <br>
             <label>Nom :</label>
-            <input name="nomClient" class="updateClient" type="text" value="<?php echo $nom; ?>" readonly />
+            <input name="nomClient" class="updateClient form-control" type="text" value="<?php echo $nom; ?>" readonly />
             <br>
             <label>Prénom :</label>
-            <input name="prenomClient" class="updateClient" type="text" value="<?php echo $prenom; ?>" readonly />
+            <input name="prenomClient" class="updateClient form-control" type="text" value="<?php echo $prenom; ?>" readonly />
             <br>
             <label>Ville :</label>
-            <input name= "villeClient" class="updateClient" type="text" value="<?php echo $ville; ?>" readonly />
+            <input name= "villeClient" class="updateClient form-control" type="text" value="<?php echo $ville; ?>" readonly />
             <br>
             <label>Date de naissance :</label>
-            <input name="dateNaiss" class="updateClient" type="date" value="<?php echo $dateNaiss; ?>" readonly />
+            <input name="dateNaiss" class="updateClient form-control" type="date" value="<?php echo $dateNaiss; ?>" readonly />
             <br>
             <label>E-mail :</label>
-            <input name="emailClient" class="updateClient" type="email" value="<?php echo $email; ?>" readonly />
+            <input name="emailClient" class="updateClient form-control" type="email" value="<?php echo $email; ?>" readonly />
             <br>
-            <input type="button" value="Modifier" onclick="btnModifClient()" />
-            <input type="submit" value="Valider/Submit" click="btnSubmitClient()"/>
+            <input class="btn btn-outline-secondary" type="button" value="Modifier" onclick="btnModifClient()" />
+            <input class="btn btn-secondary" type="submit" value="Valider/Submit" click="btnSubmitClient()"/>
 
         </form>
     </div>

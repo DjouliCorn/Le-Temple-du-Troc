@@ -107,4 +107,6 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
     }
 
 
+
+
 </script>

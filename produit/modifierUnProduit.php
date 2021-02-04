@@ -93,7 +93,7 @@ $produit= $query->fetch();
 
 						<button type="submit" name="saveProduit" class="btn btn-primary btn-block">Valider</button>
 
-					<button  class="btn btn-secondary btn-block">Annuler</button>
+					<button  class="btn btn-secondary btn-block" name="annuler" >Annuler</button>
 				</div>
 			</form>
 		</div>
@@ -104,6 +104,7 @@ $produit= $query->fetch();
     function triggerClick(e) {
         document.querySelector('#produitImage').click();
     }
+
     function displayImage(e) {
         if (e.files[0]) {
             var reader = new FileReader();
@@ -113,6 +114,9 @@ $produit= $query->fetch();
             reader.readAsDataURL(e.files[0]);
         }
     }
+
+
+
 
 </script>
 

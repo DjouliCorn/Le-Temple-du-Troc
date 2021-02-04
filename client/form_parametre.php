@@ -22,29 +22,29 @@ if (empty($dbh) == TRUE){
 
 <body>
 
-    <div>
-        <form action="parametre.php" method="POST">
+	<div class=" col-2 offset-md-4 mt-4 p-4" style="margin: auto;">
+		<form action="parametre.php" method="POST">
 
-            <div id="modifMDP" style='display: none'>
-            <label>Ancien mot de passe : </label>
-            <input type="password" name="ancienMotDePasse"/>
-            <br>
-            <label>Nouveau mot de passe : </label>
-            <input type="password" name="gestionMDP1"/>
-            <br>
-            <label>Confimer le nouveau mot de passe : </label>
-            <input type="password" name="gestionMDP2"/>
-            <br>
-            <input type="submit" name="" value="Valider le nouveau mot de passe"/>
-            <input type="button" value="Annuler" onclick="btnCancel()" />
-            </div>
-            <div id ="modifBouton" style='display:block'>
-            <input type="button" value="Modifier le mot de passe" onclick="btnModifClientMdp()" />
-            </div>
+			<div id="modifMDP" style='display: none'>
+				<label>Ancien mot de passe : </label>
+				<input type="password" name="ancienMotDePasse" class="form-control"/>
+				<br>
+				<label>Nouveau mot de passe : </label>
+				<input type="password" name="gestionMDP1" class="form-control"/>
+				<br>
+				<label>Confimer le nouveau mot de passe : </label>
+				<input type="password" name="gestionMDP2" class="form-control"/>
+				<br>
+				<input type="submit" name="" value="Valider" class="btn btn-secondary"/>
+				<input type="button" value="Annuler" onclick="btnCancel()" class="btn btn-outline-secondary btn-sm"/>
+			</div>
+			<div id ="modifBouton" style='display:block' >
+				<input type="button" value="Modifier le mot de passe" class="btn btn-secondary mt-4 " onclick="btnModifClientMdp()" />
+			</div>
 
-        </form>
-    </div>
 
+		</form>
+	</div>
     <div id="division"></div>
 
     <script type="text/javascript">
