@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once("../connexionBDD/connexion.php");
 require_once '../client/header.php';
 $dbh = new DBController();

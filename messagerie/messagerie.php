@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once '../client/header.php';
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
