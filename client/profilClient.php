@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 include 'header.php';
 if (empty($dbh) == TRUE){
     include '../inc/accessBDD.php';
@@ -61,10 +61,10 @@ $dbh = null;
             <input name= "villeClient" class="updateClient" type="text" value="<?php echo $ville; ?>" readonly />
             <br>
             <label>Date de naissance :</label>
-            <input name="dateNaiss" class="updateClient" type="text" value="<?php echo $dateNaiss; ?>" readonly />
+            <input name="dateNaiss" class="updateClient" type="date" value="<?php echo $dateNaiss; ?>" readonly />
             <br>
             <label>E-mail :</label>
-            <input name="emailClient" class="updateClient" type="text" value="<?php echo $email; ?>" readonly />
+            <input name="emailClient" class="updateClient" type="email" value="<?php echo $email; ?>" readonly />
             <br>
             <input type="button" value="Modifier" onclick="btnModifClient()" />
             <input type="submit" value="Valider/Submit" click="btnSubmitClient()"/>

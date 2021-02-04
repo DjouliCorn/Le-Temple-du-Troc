@@ -1,6 +1,6 @@
 <?php 
 session_start();
-//require_once("../inc/accessBDD.php");
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
 define('DB_PASSWORD', 'base4reco');
@@ -23,7 +23,7 @@ echo "obj:" .$_POST['name'];
 echo "content:" .$_POST['message'] .'<br>';
 
     $requete = $connexion->prepare("INSERT INTO Messages(idProduit, fromClient, toClient, content, objet) VALUES (:idProduit, :fromClient, :toClient, :content, :objet )");
-    //$requete->execute([$_GET['id']]);
+ 
       
   var_dump($requete);
         $requete->bindParam(':idProduit', $_SESSION['idProduit']);
@@ -40,7 +40,6 @@ echo "content:" .$_POST['message'];
 
         $requete->execute();
 
-//$msg ="votre message était envoyé";
-//$msg_class = "alert-succes";
+
 header('location: ../produit/afficherListDesProduits.php');
 ?>

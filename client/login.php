@@ -25,18 +25,6 @@ if (isset($_POST['connexion'])) {
     $_SESSION['motDePasse'] = $password;
 
     if (count($errors) === 0) {
-//' AND motDePasse = '$password'
-
-//$res['motDePasse'];
-//var_dump($res);
-	 //  $pass =password_verify($password, $res['motDePasse'] );
-//echo $pass;
-	   //var_dump($pass);
-
-		//AND motDePasse = '$pass
-
-	    //$pass = password_hash($password);
-	    //password_verify($password, $elt['motDePasse'] )
 
         $query = "SELECT * FROM Clients WHERE userName = '" . $username . "' ";
 
@@ -77,3 +65,4 @@ if (isset($_POST['connexion'])) {
     }
 
 }
+?>

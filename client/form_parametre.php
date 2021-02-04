@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'header.php';
 if (empty($dbh) == TRUE){
     include '../inc/accessBDD.php';
@@ -24,9 +24,6 @@ if (empty($dbh) == TRUE){
 
     <div>
         <form action="parametre.php" method="POST">
-            <!--<label> Mot de passe :</label>
-            <input name="mdpClient" class="mdpClient" type="password" value="<?php echo $_SESSION['motDePasse']; ?>" readonly />
-            <br>-->
 
             <div id="modifMDP" style='display: none'>
             <label>Ancien mot de passe : </label>

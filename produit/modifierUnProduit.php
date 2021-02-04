@@ -63,8 +63,7 @@ $produit= $query->fetch();
 
 				<?php if (!empty($msg)): ?>
 					<div class="alert <?php echo $msg_class?>" role="alert">
-						<?php echo $msg;
-						?></div>
+						</div>
 				<?php endif; ?>
 
 				<div class="form-group text-center" style="position: relative;" >

@@ -1,8 +1,7 @@
 <?php
 
 require_once("../connexionBDD/connexion.php");
-//$_SESSION['idClient'];
-//echo 'session:' . $_SESSION['idClient'];
+
 $db_handle = new DBController();
 ?>
 
@@ -22,9 +21,7 @@ $db_handle = new DBController();
 
 
 <?php
-//if(!empty($_SESSION['idClient'])){
-//	require_once '../client/header.php';
-//}
+
 
 require_once '../client/header.php'?>
     <div class="container mt-5"  id="afficheDesProduits">
@@ -32,12 +29,9 @@ require_once '../client/header.php'?>
             $product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");
 
 
-            //array_search('pate', $produit['nomProduit']);
-
-            //var_dump( array_search('pate', $produit));
 
             if (!empty($product_array)) {
-            	//in_array()
+
 
                 foreach($product_array as $produit){
 

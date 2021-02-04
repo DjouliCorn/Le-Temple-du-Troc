@@ -1,13 +1,12 @@
 <?php
 session_start();
 include_once('ajouteBDD.php');
-echo $_SESSION['idClient'];
-
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'trocdetrucs');
-define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
+require_once '../client/header.php';
+// define('DB_HOST', 'localhost');
+// define('DB_USER', 'root');
+// define('DB_PASSWORD', '');
+// define('DB_NAME', 'trocdetrucs');
+// define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -44,7 +43,6 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 </head>
 
 <body>
-<?php require_once '../client/header.php'?>
 
 <div class="container">
     <div class="row">
@@ -56,8 +54,7 @@ while ( ($un_produit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
 
                 <?php if (!empty($msg)): ?>
                     <div class="alert <?php echo $msg_class?>" role="alert">
-                   <?php echo $msg;
-                   ?></div>
+                   </div>
                    <?php endif; ?>
 
                 <div class="form-group text-center" style="position: relative;" >

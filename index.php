@@ -1,15 +1,12 @@
 <?php
-//session_start();
 
 require_once("connexionBDD/connexion.php");
 $db_handle = new DBController();
-//$GLOBALS['connecCheck'] = false;
 
 $pathBDD = "";
-$pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
+$pathBDD .= "/ProjetCode/inc/accessBDD.php";
 
     require_once './inc/accessBDD.php';
-    //require_once $pathBDD;
 
 ?>
 
@@ -31,9 +28,6 @@ $pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
 	<?php
 
 	require_once './client/header.php';
-
-	//require_once "produit/afficherListDesProduits.php";
-	//header('location: produit/afficherListDesProduits.php');
 
 	?>
 

@@ -5,12 +5,33 @@
 session_start();
 $_SESSION['idCLient'];
 
+//adapt path according to own settings
+$path = "";
+$path .="/projetWeb/FoodTROC/client/form_login.php";
 
-    $path = "";
-    $path .="/projetWeb/FoodTROC/client/form_login.php";
+$pathIndex = "";
+$pathIndex .="/projetWeb/FoodTROC/produit/afficherListDesProduits.php";
 
-    $pathIndex = "";
-    $pathIndex .="/projetWeb/FoodTROC/produit/afficherListDesProduits.php";
+$pathDeco = "";
+$pathDeco .= "/projetWeb/FoodTROC/client/deconnexion.php";
+
+$pathProfil = "";
+$pathProfil .= "/projetWeb/FoodTROC/client/profilClient.php";
+
+$pathParam = "";
+$pathParam .= "/projetWeb/FoodTROC/client/form_parametre.php";
+
+$pathListeProduits = "";
+$pathListeProduits .= "/projetWeb/FoodTROC/produit/listProduitsDuClient.php";
+
+$pathMessagerie = "";
+$pathMessagerie .= "/projetWeb/FoodTROC/messagerie/messagerie.php";
+
+if (empty($dbh) == TRUE){
+	include '../inc/accessBDD.php';
+}
+
+
 ?>
 
 <head>
@@ -37,17 +58,16 @@ $_SESSION['idCLient'];
                     </button>
                 </form>
             </div>
-            <!--<div>
-                <ul class="nav d-flex align-items-end flex-column">
-                    <li class="nav-item">
-                        <a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
-                    </li>
-                </ul>
-            </div>-->
+
 			<nav id="dropdown">
 			<div id="menuClient" class="nav d-flex align-items-end flex-column">
 
-		        <?php if(empty($_SESSION['idClient'])){?>
+		        <?php
+
+				$errors = [];
+
+
+				if(empty($_SESSION['idClient'])){?>
 					<div>
 						<ul class="nav d-flex align-items-end flex-column">
 							<li class="nav-item">
@@ -55,26 +75,102 @@ $_SESSION['idCLient'];
 							</li>
 						</ul>
 					</div>
-		        <?php } else{?>
+		        <?php }
 
-					<div class="nav-item">
-						<a class="navLink" href="#">
-					        <?php
-					        echo $_SESSION['username'];
-					        ?>
-						</a>
-						<ul id="listeMenu">
-							<li><a href="../client/profilClient.php">Mon profil</a></li>
-							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
-							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
-							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
-						</ul>
-					</div>
 
-		        <?php } ?>
+
+
+
+
+
+				if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
+					if (empty($_SESSION['username']) || empty($_SESSION['motDePasse'])) {
+						$errors['pseudo'] = 'Se connecter';
+						$errors['motDePasse'] = 'Se connecter';
+
+						?>
+						<div>
+							<ul class="nav d-flex align-items-end flex-column">
+								<li class="nav-item">
+									<a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
+								</li>
+							</ul>
+						</div>
+
+
+					<?php }
+
+					$username = $_SESSION['username'];
+					$password = $_SESSION['motDePasse'];
+
+					if (count($errors) === 0) {
+
+					$query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
+
+					$resultat = mysqli_query($dbh, $query);
+
+							if (mysqli_num_rows($resultat) === 0) {
+								$errors['userName'] = 'Se connecter';
+							?>
+
+							<div>
+							<ul class="nav d-flex align-items-end flex-column">
+								<li class="nav-item">
+									<a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
+								</li>
+							</ul>
+							</div>
+
+							<?php } else {
+
+							foreach ($resultat as $elt) {
+							$_SESSION['idClient'] = $elt['idClient'];
+
+								if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
+
+									$errors['motDePasse'] = 'Se connecter';
+									?>
+									<div>
+										<ul class="nav d-flex align-items-end flex-column">
+											<li class="nav-item">
+												<a id="navLink" class="nav-link" href="<?php echo $path ?>"> Se connecter</a>
+											</li>
+										</ul>
+									</div>
+									<?php }
+
+								if (count($errors) === 0) {
+
+									if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
+
+
+								?>
+								<div class="nav-item">
+									<a class="navLink" href="#">
+										<?php
+										echo $_SESSION['username'];
+										?>
+									</a>
+									<ul id="listeMenu">
+										<li><a href="../client/profilClient.php">Mon profil</a></li>
+										<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
+										<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
+										<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
+										<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
+									</ul>
+								</div>
+
+							 <?php }
+
+								}
+							}
+							}
+					}
+				}
+					?>
 
 			</div>
+			</nav>
 		</div>
         </div>
 
@@ -113,7 +209,7 @@ function changePath() {
   a.removeAttribute("href");
   a.setAttribute("href", "./form_login.php");
 }
-        
+
 </script>
 
 

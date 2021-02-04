@@ -1,8 +1,7 @@
 <?php 
 session_start();
 $_SESSION['idProduit']=$_GET['id'];
-echo 'session:' . $_SESSION['idClient'];
-//require_once("../inc/accessBDD.php");
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'base4reco');
 define('DB_PASSWORD', 'base4reco');
@@ -55,7 +54,7 @@ $_SESSION['toIdClient'] = $produit['idClient'];
             <div class="product-title">description: <?php echo $produit["descProduit"]; ?></div>
 
 
-<?php //echo $_SESSION['idClient'];
+<?php 
 
 if( !empty($_SESSION['idClient'] ) && $_SESSION['idClient'] != $produit['idClient'] ) { ?>
 

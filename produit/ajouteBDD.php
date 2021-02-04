@@ -1,11 +1,10 @@
 <?php
-//session_start();
-//echo $_SESSION['idClient'];
+
 
 $msg = "";
 $msg_class = "";
 $error ="";
-//include '../inc/accessBDD.php';
+
 
 if (isset($_POST['saveProduit'])) {
     // for the database
@@ -37,17 +36,14 @@ if (isset($_POST['saveProduit'])) {
 
             if (move_uploaded_file($_FILES["produitImage"]["tmp_name"], $target_file)) {
                 $idClient = $_SESSION['idClient'];
-                //echo $idClient;
+               
                 $sql = "INSERT INTO Produits SET idClient='$idClient', url1Image='$produitImageName', descProduit='$description', nomProduit='$nomProduit', idCat='$categorie'";
                 if (mysqli_query($dbh, $sql)) {
                     $msg .= "Votre produit " . $nomProduit . " est bien enregistrer";
                     $msg_class = "alert-success";
 	                header('location:listProduitsDuClient.php');
 
-                }// else {
-                //   $msg = "There was an error in the database";
-
-                //  }
+                }
             } else {
                 $error = "There was an error uploading the file";
                 $msg = "veuillez ajouter une image";
