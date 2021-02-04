@@ -30,8 +30,18 @@ require_once '../client/header.php'?>
     <div class="container mt-5"  id="afficheDesProduits">
             <?php
             $product_array = $db_handle->runQuery("SELECT idProduit, idClient, nomProduit, descProduit, url1Image FROM Produits ");
+
+
+            //array_search('pate', $produit['nomProduit']);
+
+            //var_dump( array_search('pate', $produit));
+
             if (!empty($product_array)) {
+            	//in_array()
+
                 foreach($product_array as $produit){
+
+
                     ?>
                     <div id="grid-item">
 

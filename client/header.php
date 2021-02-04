@@ -29,10 +29,10 @@ $_SESSION['idCLient'];
                 <h1 id="titre"><a href="<?php echo $pathIndex ?>">Le temple de troc</a></h1>
             </div>
             <div>
-                <form class="d-flex justify-content-center">
-                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <form action="../produit/search.php" method="get" class="d-flex justify-content-center">
+                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  name="searchInput"/>
 
-                    <button class="btn btn-outline-success" type="submit">
+                    <button class="btn btn-outline-success" name="search" type="submit">
                         Search
                     </button>
                 </form>
@@ -81,25 +81,25 @@ $_SESSION['idCLient'];
         <nav>
             <ul class="nav justify-content-center mt-5">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Vetements</a>
+                    <a class="nav-link active" aria-current="page" href="../categories/vetements.php">Vetements</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Jouets</a>
+                    <a class="nav-link" href="../categories/jouets.php">Jouets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nourriture</a>
+                    <a class="nav-link" href="../categories/nourriture.php">Nourriture</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Beauté</a>
+                    <a class="nav-link" href="../categories/beaute.php">Beauté</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">High-Tech</a>
+                    <a class="nav-link" href="../categories/high-Tech.php">High-Tech</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Maison</a>
+                    <a class="nav-link" href="../categories/maison.php">Maison</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Autres</a>
+                    <a class="nav-link" href="../categories/autresCategorie.php">Autres</a>
                 </li>
             </ul>
         </nav>
