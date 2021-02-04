@@ -53,7 +53,6 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['motDePasse'] = $password;
                     include '../produit/afficherListDesProduits.php';
                     
-                    echo 'Vous êtes connecté.';
                 }
             }
         }
