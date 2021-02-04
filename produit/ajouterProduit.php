@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once('ajouteBDD.php');
-echo $_SESSION['idClient'];
 require_once '../client/header.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
