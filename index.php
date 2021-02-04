@@ -3,7 +3,13 @@
 
 require_once("connexionBDD/connexion.php");
 $db_handle = new DBController();
-$GLOBALS['connecCheck'] = false;
+//$GLOBALS['connecCheck'] = false;
+
+$pathBDD = "";
+$pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
+
+    require_once './inc/accessBDD.php';
+    //require_once $pathBDD;
 
 ?>
 

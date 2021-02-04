@@ -5,6 +5,16 @@
     $pathIndex = "";
     $pathIndex .="/php/FoodTROC/index.php";
 
+    if (empty($dbh) == TRUE){
+        include '../inc/accessBDD.php';
+    }
+
+    /*$pathBDD = "";
+    $pathBDD .= "/php/FoodTROC/inc/accessBDD.php";
+
+    //include '../inc/accessBDD.php';
+    include $pathBDD;*/
+
     ?>
 
 
@@ -50,23 +60,28 @@ $errors = [];
 if(empty($_SESSION['idClient'])) {
 
         ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter';?> </a></li><?php
-    }
+}
 
-if (isset($_POST['connexion'])) {
+if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
+    echo 'lol' ;
 
-    if (empty($_POST['pseudo']) || empty($_POST['motDePasse'])) {
+    var_dump($_SESSION['username']);
+
+    if (empty($_SESSION['username']) || empty($_SESSION['motDePasse'])) {
         $errors['pseudo'] = 'Se connecter';
         $errors['motDePasse'] = 'Se connecter';
         ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter';?> </a></li><?php
     }
 
-    $username = $_POST['pseudo'];
-    $password = $_POST['motDePasse'];
-    $_SESSION['username'] = $username;
-    $_SESSION['motDePasse'] = $password;
+    /*$username = $_POST['pseudo'];
+    $password = $_POST['motDePasse'];*/
+    $username = $_SESSION['username'];
+    $password = $_SESSION['motDePasse'];
+
+    var_dump($username);
 
     if (count($errors) === 0) {
-   
+        echo 'je suis là';
         $query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
 
         $resultat = mysqli_query($dbh, $query);

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'header.php';
-/*include '../inc/accessBDD.php';*/
+//include '../inc/accessBDD.php';
 
 ?>
 

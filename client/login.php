@@ -2,7 +2,11 @@
 
 session_start();
 
-include '../inc/accessBDD.php';
+if (empty($dbh) == TRUE){
+    include '../inc/accessBDD.php';
+}
+
+
 
 $errors = [];
 
@@ -42,14 +46,18 @@ if (isset($_POST['connexion'])) {
 
             if (count($errors) === 0) {
                 if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
-                    include './acceuilClient.php';
+                    $username = $_POST['pseudo'];
+                    $password = $_POST['motDePasse'];
+                    $_SESSION['username'] = $username;
+                    $_SESSION['motDePasse'] = $password;
+                    include '../client/header.php';
+                    
                     echo 'Vous êtes connecté.';
-                    $GLOBALS['connecCheck'] = true;
                 }
             }
         }
     }
 
-        $dbh = null;
+        //$dbh = null;
     }
 }
