@@ -1,11 +1,11 @@
 <?php
-session_start();
-echo $_SESSION['idClient'];
+//session_start();
+//echo $_SESSION['idClient'];
 
 $msg = "";
 $msg_class = "";
 $error ="";
-include '../inc/accessBDD.php';
+//include '../inc/accessBDD.php';
 
 if (isset($_POST['saveProduit'])) {
     // for the database
@@ -18,6 +18,9 @@ if (isset($_POST['saveProduit'])) {
     // For images upload
     $target_dir = "../images/";
     $target_file = $target_dir . basename($produitImageName);
+
+        var_dump($target_file);
+
     // VALIDATION
     // validate images size. Size is calculated i Bytes
     if($_FILES['produitImage']['size'] > 2000000){
@@ -28,6 +31,10 @@ if (isset($_POST['saveProduit'])) {
         echo "error:" . $error;
         // Upload images only if no errors
         if (empty($error)) {
+
+            echo $idClient . $description . $nomProduit;
+            var_dump($_FILES["produitImage"]["tmp_name"]);
+
             if (move_uploaded_file($_FILES["produitImage"]["tmp_name"], $target_file)) {
                 $idClient = $_SESSION['idClient'];
                 //echo $idClient;

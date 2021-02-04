@@ -1,9 +1,15 @@
 <?php
-//$_SESSION['idCLient'];
-include './header.php';
 
+session_start();
 
-//require_once "indexClient.php"; ?>
+    $path = "";
+    $path .="/php/FoodTROC/client/form_login.php";
+
+    $pathIndex = "";
+    $pathIndex .="/php/FoodTROC/index.php";
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,18 +23,21 @@ include './header.php';
 
 <body>
 
-<?php echo $_SESSION['username'];?>
-
-<ul id="listeMenu">
+<div class="nav-item">
+						<a class="navLink" href="#">
+					        <?php
+					        echo $_SESSION['username'];
+					        ?>
+						</a>
+						<ul id="listeMenu">
 							<li><a href="../client/profilClient.php">Mon profil</a></li>
 							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
 							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
+							<li><a href="form_parametre.php">Mes paramètres</a></li>
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
-						</ul> 
+						</ul>
+					</div>
+
+
 </body>
 </html>
-
-<?php require_once "../produit/afficherListDesProduits.php";
-?>
-
