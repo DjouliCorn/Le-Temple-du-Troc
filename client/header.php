@@ -1,6 +1,7 @@
 <?php
-session_start();
-//$_SESSION['idCLient'];
+if (empty($_SESSION['username']) == TRUE){
+    session_start();
+}
 
     //adapt path according to own settings
     $path = "";
