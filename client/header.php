@@ -49,8 +49,7 @@ $errors = [];
 
 if(empty($_SESSION['idClient'])) {
 
-        $errors['motDePasse'] = 'Se connecterhhhghggh';
-        ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['motDePasse'];?> </a><?php
+        ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter';?> </a></li><?php
     }
 
 if (isset($_POST['connexion'])) {
@@ -58,7 +57,7 @@ if (isset($_POST['connexion'])) {
     if (empty($_POST['pseudo']) || empty($_POST['motDePasse'])) {
         $errors['pseudo'] = 'Se connecter';
         $errors['motDePasse'] = 'Se connecter';
-        ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['pseudo'];?> </a><?php
+        ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter';?> </a></li><?php
     }
 
     $username = $_POST['pseudo'];
@@ -74,7 +73,7 @@ if (isset($_POST['connexion'])) {
 
         if (mysqli_num_rows($resultat) === 0) {
             $errors['userName'] = 'Se connecter';
-            ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['userName']; ?> </a><?php
+            ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li><?php
         } else {
             
             foreach ($resultat as $elt) {
@@ -82,14 +81,14 @@ if (isset($_POST['connexion'])) {
             if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
      
                 $errors['motDePasse'] = 'Se connecter';
-                ?><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo $errors['motDePasse']; ?> </a></li> </ul>
-                </div><?php
+                ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li> </ul>
+                <?php
             }
             
             if (count($errors) === 0) {
                 
                 if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
-                    ?>
+                    ?></div>
                     <div class="nav-item">
 						<a class="navLink" href="#"><ul><li>
 					        bonjour
@@ -103,9 +102,8 @@ if (isset($_POST['connexion'])) {
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
 						</ul> -->
 					</div>
+                    </div>
                 <?php
-                    } else {
-                        echo "salutlulu" ;
                     }
                 } 
             }   
@@ -116,8 +114,6 @@ if (isset($_POST['connexion'])) {
 
   
  ?>
-
-</div>
 
 
         <nav>
