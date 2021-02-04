@@ -2,10 +2,6 @@
 
 session_start();
 
-
-
-
-
 include '../inc/accessBDD.php';
 
 $errors = [];
@@ -46,7 +42,7 @@ if (isset($_POST['connexion'])) {
 
             if (count($errors) === 0) {
                 if ($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])) {
-                    header('location: acceuilClient.php');
+                    include './acceuilClient.php';
                     echo 'Vous êtes connecté.';
                     $GLOBALS['connecCheck'] = true;
                 }

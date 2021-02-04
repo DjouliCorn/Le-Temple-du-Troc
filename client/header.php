@@ -83,15 +83,15 @@ if (isset($_POST['connexion'])) {
                 $errors['motDePasse'] = 'Se connecter';
                 ?><li class="nav-item"><a id="navLink" class="nav-link" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li> </ul>
                 <?php
-                echo count($errors);
+            
             }
-            echo count($errors);
+   
             if (count($errors) === 0) {
-                echo count($errors);
-                echo $_SESSION['username'];
-                echo $_SESSION['motDePasse'];
+
                 if (($elt['userName'] == $username) && (password_verify($password, $elt['motDePasse']))) {
-                   echo 'blablaaaa' ; ?> <a class="navLink" href="#">
+
+                   
+                   ?> <a class="navLink" href="#">
                     <?php
                     echo $_SESSION['username'];
                     ?> 
