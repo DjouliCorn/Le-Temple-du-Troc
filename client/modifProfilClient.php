@@ -10,9 +10,10 @@ $villeClient = $_REQUEST['villeClient'];
 $dateNaiss = $_REQUEST['dateNaiss'];
 $emailClient= $_REQUEST['emailClient'];
 
-$sql2 = "UPDATE clients SET nomClient = '$nomClient', prenomClient = '$prenomClient', ville = '$villeClient',
+$sql2 = "UPDATE Clients SET nomClient = '$nomClient', prenomClient = '$prenomClient', ville = '$villeClient',
 dateNaiss = '$dateNaiss', email = '$emailClient' WHERE userName = '".$userName."'";
  $stmt2 = $dbh->prepare($sql2);
+ var_dump($stmt2);
  $result2 = $stmt2->execute();
  
 ?>
