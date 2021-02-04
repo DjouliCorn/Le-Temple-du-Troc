@@ -14,6 +14,12 @@
     $pathParam = "";
     $pathParam .= "/php/FoodTROC/client/form_parametre.php";
 
+    $pathListeProduits = "";
+    $pathListeProduits .= "/php/FoodTROC/produit/listProduitsDuClient.php";
+
+    $pathMessagerie = "";
+    $pathMessagerie .= "/php/FoodTROC/messagerie/messagerie.php";
+
     if (empty($dbh) == TRUE){
         include '../inc/accessBDD.php';
     }
@@ -127,8 +133,8 @@ if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
                 </a>
                 <ul id="listeMenu">
                     <li><a href="<?php echo $pathProfil ?>">Mon profil</a></li>
-                    <li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
-                    <li><a href="../messagerie/messagerie.php">Mes messages</a></li>
+                    <li><a href="<?php echo $pathListeProduits ?>">Mes produits</a></li>
+                    <li><a href="<?php echo $pathMessagerie ?>">Mes messages</a></li>
                     <li><a href="<?php echo $pathParam ?>">Mes paramètres</a></li>
                     <li><a href="<?php echo $pathDeco ?>">Se déconnecter</a></li>
                 </ul>
