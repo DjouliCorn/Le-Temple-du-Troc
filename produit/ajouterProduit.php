@@ -2,11 +2,11 @@
 session_start();
 include_once('ajouteBDD.php');
 require_once '../client/header.php';
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'trocdetrucs');
-define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
+// define('DB_HOST', 'localhost');
+// define('DB_USER', 'root');
+// define('DB_PASSWORD', '');
+// define('DB_NAME', 'trocdetrucs');
+// define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
