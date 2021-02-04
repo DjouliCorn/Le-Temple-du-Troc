@@ -62,6 +62,7 @@ if( !empty($_SESSION['idClient'] ) && $_SESSION['idClient'] != $produit['idClien
             <div>
                 <form action = "envoyerMessage.php" method = "post" class="mt-5">
                     <label for="" class="form-label">Message:</label><br>
+					<input name="objet" type="text" placeholder="objet" class="mb-2">
                     <textarea class="form-group" name="message" id="" cols="30" rows="4" placeholder="Je suis interesé(e) par votre produit...."></textarea><br>
                     
                         <button type="submit" name="envoyer" class="btn btn-primary">Envoyer</button>

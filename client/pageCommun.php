@@ -32,11 +32,10 @@ var_dump($resultat);
 
 echo 'idclient:' . $_SESSION['idClient'];
 foreach ($resultat as $elt){
-$_SESSION['idClient'] = $elt['idClient'];
+//$_SESSION['idClient'] = $elt['idClient'];
 
 if($elt['userName'] == $username && password_verify($password, $elt['motDePasse'])){
 
-require_once 'indexClient.php';
 
 
 

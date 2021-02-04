@@ -2,19 +2,24 @@
 <html lang="en">
 
 <?php
+session_start();
+$_SESSION['idCLient'];
+
+    //adapt path according to own settings
     $path = "";
     $path .="/php/FoodTROC/client/form_login.php";
 
     $pathIndex = "";
-    $pathIndex .="/php/FoodTROC/index.php";
+    $pathIndex .="/php/FoodTROC/produit/afficherListDesProduits.php";
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/homepage.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-    <title>Header</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+	<link rel="stylesheet" href="../css/indexClient.css" />
+	<title>Header</title>
 </head>
 
 <body>
@@ -24,10 +29,10 @@
                 <h1 id="titre"><a href="<?php echo $pathIndex ?>">Le temple de troc</a></h1>
             </div>
             <div>
-                <form class="d-flex justify-content-center">
-                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <form action="../produit/search.php" method="get" class="d-flex justify-content-center">
+                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  name="searchInput"/>
 
-                    <button class="btn btn-outline-success" type="submit">
+                    <button class="btn btn-outline-success" name="search" type="submit">
                         Search
                     </button>
                 </form>
@@ -39,6 +44,7 @@
                     </li>
                 </ul>
             </div>-->
+			<nav id="dropdown">
 			<div id="menuClient" class="nav d-flex align-items-end flex-column">
 
 		        <?php if(empty($_SESSION['idClient'])){?>
@@ -61,7 +67,7 @@
 							<li><a href="../client/profilClient.php">Mon profil</a></li>
 							<li><a href="../produit/listProduitsDuClient.php">Mes produits</a></li>
 							<li><a href="../messagerie/messagerie.php">Mes messages</a></li>
-							<li><a href="form_parametre.php">Mes paramètres</a></li>
+							<li><a href="../client/form_parametre.php">Mes paramètres</a></li>
 							<li><a href="../client/deconnexion.php">Se déconnecter</a></li>
 						</ul>
 					</div>
@@ -69,30 +75,31 @@
 		        <?php } ?>
 
 			</div>
+		</div>
         </div>
 
         <nav>
             <ul class="nav justify-content-center mt-5">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Vetements</a>
+                    <a class="nav-link active" aria-current="page" href="../categories/vetements.php">Vetements</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Jouets</a>
+                    <a class="nav-link" href="../categories/jouets.php">Jouets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nourriture</a>
+                    <a class="nav-link" href="../categories/nourriture.php">Nourriture</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Beauté</a>
+                    <a class="nav-link" href="../categories/beaute.php">Beauté</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">High-Tech</a>
+                    <a class="nav-link" href="../categories/high-Tech.php">High-Tech</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Maison</a>
+                    <a class="nav-link" href="../categories/maison.php">Maison</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Autres</a>
+                    <a class="nav-link" href="../categories/autresCategorie.php">Autres</a>
                 </li>
             </ul>
         </nav>
@@ -105,13 +112,6 @@ function changePath() {
   var a = document.querySelector("#navLink");
   a.removeAttribute("href");
   a.setAttribute("href", "./form_login.php");
-}
-
-function path(){
-
-        window.location.href ='http://localhost:63342/projetWeb/FoodTROC/index.php?_ijt=25vbh0nmsaoqjo4rdb7n042kof';
-
-
 }
         
 </script>
