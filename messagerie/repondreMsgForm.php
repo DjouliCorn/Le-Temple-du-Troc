@@ -7,23 +7,20 @@ define('DB_PASSWORD', 'base4reco');
 define('DB_NAME', 'TrocDeTrucs');
 define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port=3306;charset=UTF8');
 
-echo $_GET['id'];
-$idClient = $_SESSION['idClient'];
-echo "client:". $idClient;
-
-
-$idMess=$_GET['id'];
-
-$fromClient = $_SESSION['idClient'];
-
-
 
 
 echo "avant sql";
+
+/*** pour recuperer le message avec id qui viens sur la page messagerie.php	****/
+$idMess=$_GET['id'];
 $connexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 $sql ="SELECT  Produits.nomProduit,Clients.idClient,Messages.idProduit, Clients.email FROM Produits, Messages, Clients WHERE Messages.idMess = $idMess AND Messages.fromClient = Clients.idClient AND Messages.idProduit = Produits.idProduit";
 
+//$fromClient = ;
+//$toClient;
+//$content;
+//$idProduit;
 
 
 //$sql = "INSERT INTO tutorials_inf(name)VALUES ('".$_POST["name"]."')";
@@ -31,46 +28,16 @@ $sql ="SELECT  Produits.nomProduit,Clients.idClient,Messages.idProduit, Clients.
 $messages=$connexion->query($sql);
 
 $result = $messages->fetch_array(MYSQLI_ASSOC);
-
 var_dump($result);
 
 
-echo "nomProd: ".$result["nomProduit"].'<br>';
-echo "email: ".$result["email"].PHP_EOL;
-echo "idProduit: ".$result["idProduit"]."<br>";
-echo "toClient: ".$result["idClient"]."<br>";
+
+/******		session pour recuperer a la page reponseTraitement	******/
+$_SESSION['idClientTo'] = $result['idClient'];
+$_SESSION['idProduit']= $result['idProduit'];
 
 
 
-if(isset($_POST['envoyer'])){
-
-	//$fromClient;
-//$toClient;
-//$content;
-//$idProduit;
-   
-  $idProduit = $result["idProduit"];
-
-  $content = $_POST['reponse'];
-  $toClient = $result["idClient"];
-  
-  
-    $sql ="INSERT INTO Messages SET idProduit=$idProduit, content=$content, toClient=$toClient,fromClient=$idClient )";
-  
-    
-  
-    echo 'id' . $idClient.PHP_EOL;
-    echo 'content'.$content.PHP_EOL;
-
-    echo 'to'.$toClient.PHP_EOL;
-    echo $idClient;
-  
-    $messages=$connexion->query($sql);
-  
-     var_dump($messages);
-    echo "insert success";
-  
-  }
   
 
 
@@ -89,33 +56,30 @@ if(isset($_POST['envoyer'])){
    <title>Document</title>
 </head>
 <body>
-<?php require_once '../mutualisation/header2.php'?>
-
-<div class="col-8 offset-md-2 mt-5">
+<?php require_once '../client/header.php'?>
 
 
-<form action="repondreMessage.php" method="POST" class="form-control">
-    <div class="mb-3 row" >
-      <label for="staticEmail" class="col-sm-2 col-form-label">Nom Produit:</label>
-      <div class="col-sm-10">
-        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php   echo $result["nomProduit"]?>">
+<div class="col-4 offset-md-4 mt-5" >
 
-      </div>
+
+<form action="reponseTraitement.php" method="POST" >
+    <div class="mb-3 " >
+      	<label>Nom Produit: &nbsp;&nbsp;&nbsp;</label>
+        <label><?php   echo $result["nomProduit"]?></label>
+
     </div>
-    <div class="mb-3 row" >
-      <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
-      <div class="col-sm-10">
-        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $result["email"]?>">
-      </div>
+    <div class="mb-3" >
+        <label>Email: &nbsp;&nbsp;&nbsp;</label>
+		<label> <?php echo $result["email"]?></label>
     </div>
 
 
     <div class="mb-3 row" >
         <label for="staticEmail" class="col-sm-2 col-form-label">Message:</label>
-        <textarea class="m-2" cols="50" rows="10"  name="reponse" placeholder=" Ecrire votre reponse.."></textarea>
+        <textarea class="m-2" cols="30" rows="10"  name="reponse" placeholder=" Ecrire votre reponse.."></textarea>
     </div>
-	<div class="ml-auto mb-3" >
-		<button class="btn btn-primary" name="envoyer" > Envoyer</button>
+	<div class="mb-3 float-right " >
+		<button type="submit" class="btn btn-primary" name="submit" > Envoyer</button>
     </div>
 
 </form>

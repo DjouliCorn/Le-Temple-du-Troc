@@ -60,11 +60,6 @@ $db_handle = new DBController();
 
 
 
-
-
-
-
-
 </body>
 
 </html>

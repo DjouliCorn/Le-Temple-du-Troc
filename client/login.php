@@ -22,8 +22,21 @@ if (isset($_POST['connexion'])) {
     $_SESSION['motDePasse'] = $password;
 
     if (count($errors) === 0) {
+//' AND motDePasse = '$password'
 
-        $query = "SELECT * FROM Clients WHERE userName = '" . $username . "'";
+//$res['motDePasse'];
+//var_dump($res);
+	 //  $pass =password_verify($password, $res['motDePasse'] );
+//echo $pass;
+	   //var_dump($pass);
+
+		//AND motDePasse = '$pass
+
+	    //$pass = password_hash($password);
+	    //password_verify($password, $elt['motDePasse'] )
+
+        $query = "SELECT * FROM Clients WHERE userName = '" . $username . "' ";
+
 
         $resultat = mysqli_query($dbh, $query);
 
@@ -37,7 +50,7 @@ if (isset($_POST['connexion'])) {
             
             foreach ($resultat as $elt) {
 	            $_SESSION['idClient'] = $elt['idClient'];
-            if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'])) {
+            if ($elt['userName'] != $username || !password_verify($password, $elt['motDePasse'] )) {
                 include './form_login.php';
                 $errors['motDePasse'] = 'Nom d`utilisateur ou mot de passe incorrect';
                 echo '<p style="text-align: center">' . $errors['motDePasse'] . '</p>';
@@ -52,8 +65,11 @@ if (isset($_POST['connexion'])) {
                 }
             }
         }
+
     }
 
         $dbh = null;
+
     }
+
 }
