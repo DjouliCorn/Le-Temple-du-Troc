@@ -51,7 +51,7 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
 
 ## Liens :
 
-Github : https://github.com/DjouliCorn/FoodTROC/
+Github : https://github.com/DjouliCorn/FoodTROC/tree/prodFinal
 
 Trello : https://trello.com/b/Z2YWZtMC/projet
 
