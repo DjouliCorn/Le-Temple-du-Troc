@@ -15,15 +15,15 @@
 | ./messagerie/ | Gestion de la messagerie |
 | ./produit/ | Gestion, ajout, recherches des produits |
 
-### Description
+## Description
 
 Site d'échange en ligne pour lutter contre le gaspillage !
 
 Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher des choses dont ils auraient besoin.
 
-### Features fonctionnelles
+## Features fonctionnelles
 
-# Gestion des utilisateurs :
+### Gestion des utilisateurs :
  
   - Inscription
   - Login
@@ -32,7 +32,7 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
   - Gestion des sessions utilisateurs
   - Déconnexion de la session
   
-# Gestions des produits :
+### Gestions des produits :
 
   - Ajout de produit par l'utilisateur
   - Suppression des produits
@@ -40,21 +40,21 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
   - Affichage en grille des produits dans les pages
   - Ajout des images des produits
   
-# Messagerie :
+### Messagerie :
 
   - Envoi de messages
   - Réception de messages
   - Réponse directe
   - Historique des messages
   
-# Le K-way de Jesusa
+### Le K-way de Jesusa
 
-### Liens :
+## Liens :
 
 Github : https://github.com/DjouliCorn/FoodTROC/
 
 Trello : https://trello.com/b/Z2YWZtMC/projet
 
-# Membres : 
+## Membres : 
 
 Jesusa, Zohra, Julie, Samia, Nicolas
