@@ -5,7 +5,7 @@
 | Répertoire | Contenu |
 | ----------- | ---------- |
 | ./ | Contient l'index |
-| ./categoires/ | Pages pour les catégories de produits |
+| ./categories/ | Pages pour les catégories de produits |
 | ./client/ | Pages de gestion session et profil client |
 | ./connexionBDD/ | Contient le fichier de connexion à la BDD |
 | ./css/ | CSS sheets |
@@ -23,7 +23,7 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
 
 ### Features fonctionnelles
 
-# - Gestion des utilisateurs :
+# Gestion des utilisateurs :
  
   - Inscription
   - Login
@@ -32,7 +32,7 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
   - Gestion des sessions utilisateurs
   - Déconnexion de la session
   
-# - Gestions des produits :
+# Gestions des produits :
 
   - Ajout de produit par l'utilisateur
   - Suppression des produits
@@ -40,19 +40,21 @@ Les utilisateurs peuvent poster leurs produits ou articles en ligne, ou chercher
   - Affichage en grille des produits dans les pages
   - Ajout des images des produits
   
-# - Messagerie :
+# Messagerie :
 
   - Envoi de messages
   - Réception de messages
   - Réponse directe
   - Historique des messages
   
-# - Le K-way de Jesusa
+# Le K-way de Jesusa
 
-### Liens
+### Liens :
 
 Github : https://github.com/DjouliCorn/FoodTROC/
 
 Trello : https://trello.com/b/Z2YWZtMC/projet
 
-# Membres : Jesusa, Zohra, Julie, Samia, Nicolas
+# Membres : 
+
+Jesusa, Zohra, Julie, Samia, Nicolas
