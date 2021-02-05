@@ -50,7 +50,11 @@ require_once '../client/header.php'?>
 			</div>
 			<?php
 		}
-	}
+	}else{ ?>
+
+		<div class="alert alert-danger form-control" role="alert"><h3> Vouz avez aucun produit dans cette categorie </h3></div>
+
+	<?php }
 	?>
 </div>
 </body>

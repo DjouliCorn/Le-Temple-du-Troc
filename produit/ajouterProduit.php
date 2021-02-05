@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('ajouteBDD.php');
+include '../produit/ajouteBDD.php';
 require_once '../client/header.php';
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');

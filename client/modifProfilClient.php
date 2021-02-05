@@ -16,9 +16,11 @@ $sql2 = "UPDATE Clients SET nomClient = '$nomClient', prenomClient = '$prenomCli
 dateNaiss = '$dateNaiss', email = '$emailClient' WHERE userName = '".$userName."'";
  $stmt2 = $dbh->prepare($sql2);
  $result2 = $stmt2->execute();
+
+ exit(header('location: ../client/profilClient.php'));
  
 ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,3 +34,4 @@ dateNaiss = '$dateNaiss', email = '$emailClient' WHERE userName = '".$userName."
     <a href="./profilClient.php">Retour aux modifications</a>
 </body>
 </html>
+-->

@@ -21,18 +21,25 @@ if (($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $m
 
     if ($dbh->query($sql3) === TRUE) {
 
-        echo 'Mise à jour du nouveau mot de passe ';
+        echo  '<p style="text-align:center">Mise à jour du nouveau mot de passe <br> ';
+	    echo '<a style="text-align:center; text-decoration: none" href="./form_parametre.php">Retour aux modifications</a> </p>';
+
         $_SESSION['motDePasse'] = $motDePasse1;
+        //exit(header('location : ../client/form_parametre.php'));
+
     } else {
         $dbh->error;
     }
 } else {
 
-    echo 'Mot de passe erroné';
+    echo ' <p style="text-align:center"> Mot de passe erroné <br>';
+	echo '<a style= "text-decoration: none" href="./form_parametre.php">Retour aux modifications</a></p>';
+	//exit(header('location : ../client/form_parametre.php'));
 }
 
 ?>
 
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,3 +55,4 @@ if (($submittedOldPassword == $oldPassword) && (password_verify($motDePasse1, $m
 </body>
 
 </html>
+-->

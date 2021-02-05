@@ -82,7 +82,7 @@ if (empty($dbh) == TRUE) {
         ?><a id="navLink" class="nav-link text-white" href="<?php echo $path ?>"> <?php echo 'Se connecter'; ?> </a></li><?php
         }
 
-    if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
+    else if (isset($_POST['connexion']) || !empty($_SESSION['idClient'])) {
 
 
     if (empty($_SESSION['username']) || empty($_SESSION['motDePasse'])) {
@@ -93,6 +93,7 @@ if (empty($dbh) == TRUE) {
 
     $username = $_SESSION['username'];
     $password = $_SESSION['motDePasse'];
+
 
     if (count($errors) === 0) {
 

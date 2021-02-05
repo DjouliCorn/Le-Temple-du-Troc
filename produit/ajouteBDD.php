@@ -25,7 +25,10 @@ if (isset($_POST['saveProduit'])) {
     if($_FILES['produitImage']['size'] > 2000000){
         $msg = "Image size should not be greated than 200Kb";
         $msg_class = "la taille d'image est trop grande";
-    }else {  
+    }else {
+
+
+
 
         echo "error:" . $error;
         // Upload images only if no errors

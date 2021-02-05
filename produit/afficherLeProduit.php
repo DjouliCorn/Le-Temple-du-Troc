@@ -49,7 +49,7 @@ $_SESSION['toIdClient'] = $produit['idClient'];
 				<p class="alert alert-info mt-5" role="alert">ça vous intéresse? connecter-vous pour en voir plus</p>
 			<?php } ?>
 
-            <div class="product-image"><img width="200" height="220" src="../images/<?php echo $produit["url1Image"]; ?>"/></div>
+            <div class="product-image mb-2"><img width="200" height="220" src="../images/<?php echo $produit["url1Image"]; ?>"/></div>
             <div class="product-title">Nom produit: <?php echo $produit["nomProduit"]; ?></div>
             <div class="product-title">description: <?php echo $produit["descProduit"]; ?></div>
 
@@ -59,12 +59,12 @@ $_SESSION['toIdClient'] = $produit['idClient'];
 if( !empty($_SESSION['idClient'] ) && $_SESSION['idClient'] != $produit['idClient'] ) { ?>
 
             <div>
-                <form action = "envoyerMessage.php" method = "post" class="mt-5">
+                <form action = "envoyerMessage.php" method = "post" class="mt-5 form-control p-3">
                     <label for="" class="form-label">Message:</label><br>
 					<input name="objet" type="text" placeholder="objet" class="mb-2">
                     <textarea class="form-group" name="message" id="" cols="30" rows="4" placeholder="Je suis interesé(e) par votre produit...."></textarea><br>
                     
-                        <button type="submit" name="envoyer" class="btn btn-primary">Envoyer</button>
+                        <button type="submit" name="envoyer" class="btn btn-primary mt-3">Envoyer</button>
                    
                 </form>
             </div>

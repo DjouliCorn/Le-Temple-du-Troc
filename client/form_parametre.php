@@ -1,5 +1,8 @@
 <?php
 //session_start();
+//require_once '../client/parametre.php';
+
+
 include 'header.php';
 if (empty($dbh) == TRUE){
     include '../inc/accessBDD.php';
@@ -24,6 +27,7 @@ if (empty($dbh) == TRUE){
 
 	<div class=" col-2 offset-md-4 mt-4 p-4" style="margin: auto;">
 		<form action="parametre.php" method="POST">
+
 
 			<div id="modifMDP" style='display: none'>
 				<label>Ancien mot de passe : </label>
